@@ -1,2 +1,2 @@
 # GP-Aide
-project-gp-aid created by GitHub Classroom
+Team Members: Sam Sandoval, Jacob Nguyen, Ethan Davidson, Sergio Herrera
