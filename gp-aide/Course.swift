@@ -12,30 +12,33 @@ class Course {
     var grade: String
     var credits: Int
     
-    init(classTitle: String, classGrade: String, classCredits: Int){
+    init(classTitle: String, classGrade: String, classCredits: Int) {
         self.title = classTitle
         self.grade = classGrade
         self.credits = classCredits
     }
     
-    func setCourseTitle(_ classTitle:String){
-        self.title = classTitle
+    func setCourseTitle(_ classTitle: String) {
+        title = classTitle
     }
-    func setCourseGrade(_ classGrade:String){
-        self.grade = classGrade
+
+    func setCourseGrade(_ classGrade: String) {
+        grade = classGrade
     }
-    func setCourseCredit(_ classCredits:Int){
-        self.credits = classCredits
+
+    func setCourseCredit(_ classCredits: Int) {
+        credits = classCredits
     }
     
-    func getCourseTitle() -> String{
+    func getCourseTitle() -> String {
         return title
     }
     
-    func getCourseGrade() -> String{
+    func getCourseGrade() -> String {
         return grade
     }
-    func getCourseCredit() -> Int{
+
+    func getCourseCredit() -> Int {
         return credits
     }
 }
