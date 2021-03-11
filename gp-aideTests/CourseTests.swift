@@ -26,7 +26,7 @@ class CourseTests: XCTestCase {
         XCTAssertEqual(currCourse.getCourseCredit(), 0)
     }
 
-    func testCourseInitializerClassCreditAbove5() {
+    func testCourseInitializerClassCreditAboveFive() {
         let currCourse = Course("FirstCourse", classGrade: "A+", classCredits: 6)
         XCTAssertEqual(currCourse.getCourseCredit(), 0)
     }
