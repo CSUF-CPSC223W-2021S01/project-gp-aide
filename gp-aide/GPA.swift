@@ -8,7 +8,6 @@
 import Foundation
 
 class GPA {
-    
     // grade points for 4.0 scale
     let grades = [
         "A+": 4.0,
@@ -31,7 +30,7 @@ class GPA {
     var currGPA: Double
     var currCredits: Double
     // user may choose not to add previous GPA
-    var previousGPA: [String:Double] = [:]
+    var previousGPA: [String: Double] = [:]
     
     init() {
         term = []
@@ -54,8 +53,8 @@ class GPA {
     }
     
     func setCurrentGPA(_ computedGPA: Double) {
-            currGPA = computedGPA
-        }
+        currGPA = computedGPA
+    }
 
     func setPreviousGPA(_ prevGPA: Double, _ prevCredits: Double) {
         previousGPA["gpa"] = prevGPA
@@ -68,7 +67,7 @@ class GPA {
     
     func removeTermCourse(_ title: String) -> Bool {
         var found = false
-        for (index,course) in term.enumerated() {
+        for (index, course) in term.enumerated() {
             if title == course.title {
                 found = true
                 term.remove(at: index)
@@ -92,7 +91,8 @@ class GPA {
         var totalGradePoints = 0.0
         
         for course in term {
-            addCredits(Double(course.getCourseCredit()))
+            let credits = Double(course.getCourseCredit())
+            addCredits(credits)
             let grade = course.getCourseGrade()
             let gradePoints = grades[grade]
             totalGradePoints += gradePoints!
@@ -120,5 +120,4 @@ class GPA {
         currCredits = 0.0
         previousGPA.removeAll()
     }
-    
 }
