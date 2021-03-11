@@ -113,8 +113,8 @@ class GPA {
         return cumGPA
     }
     
-    // clear all courses and gpa values
-    func reset() {
+    // clear all fields and deinitialize
+    deinit {
         term.removeAll()
         currGPA = 0.0
         currCredits = 0.0
