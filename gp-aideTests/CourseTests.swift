@@ -9,7 +9,6 @@
 import XCTest
 
 class CourseTests: XCTestCase {
-
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -21,6 +20,15 @@ class CourseTests: XCTestCase {
     func testCourseInitializer() {
         let currCourse = Course("FirstCourse", classGrade: "A+", classCredits: 3)
         XCTAssertEqual(currCourse.getCourseTitle(), "FirstCourse")
+    }
+    func testCourseInitializerClassCreditZero() {
+        let currCourse = Course("FirstCourse", classGrade: "A+", classCredits: 0)
+        XCTAssertEqual(currCourse.getCourseCredit(), 0)
+    }
+
+    func testCourseInitializerClassCreditAbove5() {
+        let currCourse = Course("FirstCourse", classGrade: "A+", classCredits: 6)
+        XCTAssertEqual(currCourse.getCourseCredit(), 0)
     }
 
     func testSetCourseTitle() {
@@ -40,7 +48,19 @@ class CourseTests: XCTestCase {
         currCourse.setCourseCredit(1)
         XCTAssertEqual(currCourse.getCourseCredit(), 1)
     }
-    
+
+    func testSetCourseCreditsAtZero() {
+        let currCourse = Course("FirstCourse", classGrade: "A+", classCredits: 3)
+        currCourse.setCourseCredit(0)
+        XCTAssertEqual(currCourse.getCourseCredit(), 3)
+    }
+
+    func testSetCourseCreditsAboveFive() {
+        let currCourse = Course("FirstCourse", classGrade: "A+", classCredits: 3)
+        currCourse.setCourseCredit(6)
+        XCTAssertEqual(currCourse.getCourseCredit(), 3)
+    }
+
     func testChangeMultipleVariables() {
         let currCourse = Course("FirstCourse", classGrade: "A+", classCredits: 3)
         currCourse.setCourseTitle("SecondCourse")
@@ -54,7 +74,7 @@ class CourseTests: XCTestCase {
         currCourse.setCourseTitle("NewCourseTitle")
         XCTAssert(currCourse.printOut == "NewCourseTitle: Grade Received A+. Credits for course: 3 cr \n")
     }
-    
+
     func testCourseDeInitializer() {
         var currCourse: Course? = Course("FirstCourse", classGrade: "A+", classCredits: 3)
         currCourse = nil
