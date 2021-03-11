@@ -21,8 +21,8 @@ class Course {
         self.title = classTitle
         self.grade = classGrade
         self.credits = 0
-        if classCredits <= 5, classCredits > 0{
-            credits = classCredits
+        if classCredits <= 5, classCredits > 0 {
+            self.credits = classCredits
         }
     }
 
