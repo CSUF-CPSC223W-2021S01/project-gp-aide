@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		334FBC2D25F833AD007295E6 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334FBC2C25F833AC007295E6 /* Course.swift */; };
 		3391B9AB25E827CA007B76E3 /* Sam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391B9AA25E827CA007B76E3 /* Sam.swift */; };
+		33D1002425F949E8009657C2 /* CourseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D1002325F949E8009657C2 /* CourseTests.swift */; };
 		81B506F525E5944000BB320B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 81B506F425E5944000BB320B /* .gitignore */; };
 		81E657F125E593A100F6F42B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E657F025E593A100F6F42B /* AppDelegate.swift */; };
 		81E657F325E593A100F6F42B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E657F225E593A100F6F42B /* SceneDelegate.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		334FBC2C25F833AC007295E6 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		3391B9AA25E827CA007B76E3 /* Sam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sam.swift; sourceTree = "<group>"; };
+		33D1002325F949E8009657C2 /* CourseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTests.swift; sourceTree = "<group>"; };
 		81B506F425E5944000BB320B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		81E657ED25E593A100F6F42B /* gp-aide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gp-aide.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E657F025E593A100F6F42B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				81E6580725E593A200F6F42B /* gp_aideTests.swift */,
+				33D1002325F949E8009657C2 /* CourseTests.swift */,
 				81E6580925E593A200F6F42B /* Info.plist */,
 			);
 			path = "gp-aideTests";
@@ -280,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33D1002425F949E8009657C2 /* CourseTests.swift in Sources */,
 				81E6580825E593A200F6F42B /* gp_aideTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,8 +364,10 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -421,8 +427,10 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -448,14 +456,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DLW9U63M3Y;
 				INFOPLIST_FILE = "gp-aide/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jacobnguyen.gp-aide";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gp-aide";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -466,14 +477,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DLW9U63M3Y;
 				INFOPLIST_FILE = "gp-aide/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jacobnguyen.gp-aide";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gp-aide";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -485,6 +499,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DLW9U63M3Y;
 				INFOPLIST_FILE = "gp-aideTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -506,6 +521,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DLW9U63M3Y;
 				INFOPLIST_FILE = "gp-aideTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -526,6 +542,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DLW9U63M3Y;
 				INFOPLIST_FILE = "gp-aideUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -545,6 +562,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DLW9U63M3Y;
 				INFOPLIST_FILE = "gp-aideUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -11,11 +11,19 @@ class Course {
     var title: String
     var grade: String
     var credits: Int
+    var printOut: String {
+        var courseStr: String = ""
+        courseStr += "\(title): Grade Received \(grade). Credits for course: \(credits) cr \n"
+        return courseStr
+    }
 
-    init(classTitle: String, classGrade: String, classCredits: Int) {
+    init(_ classTitle: String, classGrade: String, classCredits: Int) {
         self.title = classTitle
         self.grade = classGrade
-        self.credits = classCredits
+        self.credits = 0
+        if classCredits <= 5, classCredits > 0{
+            credits = classCredits
+        }
     }
 
     func setCourseTitle(_ classTitle: String) {
@@ -27,7 +35,9 @@ class Course {
     }
 
     func setCourseCredit(_ classCredits: Int) {
-        credits = classCredits
+        if classCredits <= 5, classCredits > 0 {
+            credits = classCredits
+        }
     }
 
     func getCourseTitle() -> String {
