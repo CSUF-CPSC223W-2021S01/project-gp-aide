@@ -41,7 +41,8 @@ class GPA {
     
     // action methods
     func getCurrentGPA() -> Double {
-        return currGPA
+        let formattedGPA = round(self.currGPA * 100) / 100
+        return formattedGPA
     }
     
     func getCurrentCredits() -> Double {
@@ -88,29 +89,32 @@ class GPA {
     }
     
     func calculateCurrentGPA() {
-        var totalGradePoints = 0.0
-        
+        var totalQualityPoints = 0.0
+
         for course in term {
             let credits = Double(course.getCourseCredit())
-            addCredits(credits)
+            self.addCredits(credits)
             let grade = course.getCourseGrade()
-            let gradePoints = grades[grade]
-            totalGradePoints += gradePoints!
+            let gradePoints = credits * grades[grade]!
+            
+            totalQualityPoints += gradePoints
         }
         
         // gpa formula
-        let calculatedGPA = (totalGradePoints / currCredits)
-        setCurrentGPA(calculatedGPA)
+        let calculatedGPA = (totalQualityPoints / currCredits)
+        self.setCurrentGPA(calculatedGPA)
     }
     
     func calculateCumulativeGPA() -> Double {
         var cumGPA = 0.0
         // calculate gradepoints for current and previous GPAs and insert into gpa formula
-        let prevGradePoints = previousGPA["gpa"]! * previousGPA["credits"]!
-        let currGradePoints = currGPA * currCredits
-        cumGPA = (prevGradePoints + currGradePoints) / (previousGPA["credits"]! + currCredits)
+        let prevQualityPoints = previousGPA["gpa"]! * previousGPA["credits"]!
+        let currQualityPoints = currGPA * currCredits
+        cumGPA = (prevQualityPoints + currQualityPoints) / (previousGPA["credits"]! + currCredits)
         
-        return cumGPA
+        let formattedCumGPA = round(cumGPA * 100) / 100
+        
+        return formattedCumGPA
     }
     
     // clear all fields and deinitialize
