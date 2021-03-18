@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		334FBC2D25F833AD007295E6 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334FBC2C25F833AC007295E6 /* Course.swift */; };
-		7A11C90425F9639700FB2A37 /* GPA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11C90325F9639700FB2A37 /* GPA.swift */; };
 		33D1002425F949E8009657C2 /* CourseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D1002325F949E8009657C2 /* CourseTests.swift */; };
+		7A11C90425F9639700FB2A37 /* GPA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11C90325F9639700FB2A37 /* GPA.swift */; };
+		7A5DC59A2603287900F9AC04 /* GPA_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5DC5992603287900F9AC04 /* GPA_Tests.swift */; };
 		81B506F525E5944000BB320B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 81B506F425E5944000BB320B /* .gitignore */; };
 		81E657F125E593A100F6F42B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E657F025E593A100F6F42B /* AppDelegate.swift */; };
 		81E657F325E593A100F6F42B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E657F225E593A100F6F42B /* SceneDelegate.swift */; };
@@ -40,8 +41,9 @@
 
 /* Begin PBXFileReference section */
 		334FBC2C25F833AC007295E6 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
-		7A11C90325F9639700FB2A37 /* GPA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPA.swift; sourceTree = "<group>"; };
 		33D1002325F949E8009657C2 /* CourseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTests.swift; sourceTree = "<group>"; };
+		7A11C90325F9639700FB2A37 /* GPA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPA.swift; sourceTree = "<group>"; };
+		7A5DC5992603287900F9AC04 /* GPA_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPA_Tests.swift; sourceTree = "<group>"; };
 		81B506F425E5944000BB320B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		81E657ED25E593A100F6F42B /* gp-aide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gp-aide.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E657F025E593A100F6F42B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				81E6580725E593A200F6F42B /* gp_aideTests.swift */,
 				33D1002325F949E8009657C2 /* CourseTests.swift */,
 				81E6580925E593A200F6F42B /* Info.plist */,
+				7A5DC5992603287900F9AC04 /* GPA_Tests.swift */,
 			);
 			path = "gp-aideTests";
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A5DC59A2603287900F9AC04 /* GPA_Tests.swift in Sources */,
 				33D1002425F949E8009657C2 /* CourseTests.swift in Sources */,
 				81E6580825E593A200F6F42B /* gp_aideTests.swift in Sources */,
 			);
