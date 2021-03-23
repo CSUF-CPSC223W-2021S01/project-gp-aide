@@ -38,7 +38,7 @@ class ViewController: UIViewController {
             //Hide Error Message if on and show success message
             errorLabel.isHidden = true
             successLabel.isHidden = false
-            successLabel.text = "Success added \(currCourse.title) with grade \(currCourse.grade) and \(currCourse.credits) Units"
+            successLabel.text = "Success added \(currCourse.title) grade: \(currCourse.grade) and \(currCourse.credits) units"
             
             //reset text fields to empty
             courseName.text = ""
