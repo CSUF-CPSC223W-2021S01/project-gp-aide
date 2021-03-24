@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Course {
+class Course: Codable {
     var title: String
     var grade: String
     var credits: Int
