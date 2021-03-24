@@ -8,22 +8,6 @@
 import Foundation
 
 class GPA {
-    // grade points for 4.0 scale
-    let grades = [
-        "A+": 4.0,
-        "A": 4.0,
-        "A-": 3.7,
-        "B+": 3.3,
-        "B": 3.0,
-        "B-": 2.7,
-        "C+": 2.3,
-        "C": 2.0,
-        "C-": 1.7,
-        "D+": 1.3,
-        "D": 1.0,
-        "D-": 0.7,
-        "F": 0.0
-    ]
     
     // list of classes for current term
     var term: [Course]
@@ -95,7 +79,7 @@ class GPA {
             let credits = Double(course.getCourseCredit())
             self.addCredits(credits)
             let grade = course.getCourseGrade()
-            let gradePoints = credits * grades[grade]!
+            let gradePoints = credits * GRADES[grade]!
             
             totalQualityPoints += gradePoints
         }
