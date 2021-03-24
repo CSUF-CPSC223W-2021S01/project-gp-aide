@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        readCourseFromDisk()
     }
 
     // Add a course to gpa object
@@ -35,7 +36,7 @@ class ViewController: UIViewController {
         if currCourseName != nil, currCourseGrade != nil, currCourseUnits != nil {
             let currCourse = Course(currCourseName!, classGrade: currCourseGrade!, classCredits: currCourseUnits!)
             userGPA.addTermCourse(currCourse)
-            
+            saveCourseToDisk(currCourse)
             // Hide Error Message if on and show success message
             errorLabel.isHidden = true
             successLabel.isHidden = false
@@ -61,21 +62,22 @@ class ViewController: UIViewController {
     }
     
     // save data to Disk
-    func saveCourseToDisk() {
-        let currCourseName = courseName.text
-        let currCourseGrade = courseGrade.text
-        let currCourseUnits = Int(courseUnits.text!)
-        
-        if currCourseName != nil, currCourseGrade != nil, currCourseUnits != nil {
-            let currCourse = Course(currCourseName!, classGrade: currCourseGrade!, classCredits: currCourseUnits!)
-            let encoder = JSONEncoder()
-            if let encoded = try? encoder.encode(currCourse) {
-                UserDefaults.standard.set(encoded, forKey: "SavedCourse")
-            }
+    func saveCourseToDisk(_ currCourse: Course) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(currCourse) {
+            UserDefaults.standard.set(encoded, forKey: "SavedCourse")
         }
+        
         print("Course saved to UserDefaults")
     }
-    func readCourseFromDisk(){
-       
+    
+    // read Disk
+    func readCourseFromDisk() {
+        if let savedCourse = UserDefaults.standard.object(forKey: "SavedCourse") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedCourse = try? decoder.decode(Course.self, from: savedCourse) {
+                print(loadedCourse.title)
+            }
+        }
     }
 }
