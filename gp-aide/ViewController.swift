@@ -71,7 +71,7 @@ class ViewController: UIViewController {
         print("Course saved to UserDefaults")
     }
     
-    // read Disk
+    // read data from Disk
     func readCourseFromDisk() {
         if let savedCourse = UserDefaults.standard.object(forKey: "SavedCourse") as? Data {
             let decoder = JSONDecoder()
