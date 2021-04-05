@@ -7,7 +7,7 @@
 
 import Foundation
 
-class GPA {
+class GPA: Codable {
     // grade points for 4.0 scale
     let grades = [
         "A+": 4.0,
@@ -32,16 +32,41 @@ class GPA {
     // user may choose not to add previous GPA
     var previousGPA: [String: Double] = [:]
     
+    private enum CodingKeys: String, CodingKey {
+        case term
+        case currGPA
+        case currCredits
+        case previousGPA
+    }
+    
     init() {
         term = []
         currGPA = 0.0
         currCredits = 0.0
         previousGPA = ["gpa": 0.0, "credits": 0]
     }
+
+    // Decode init
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        term = try values.decode([Course].self, forKey: .term)
+        currGPA = try values.decode(Double.self, forKey: .currGPA)
+        currCredits = try values.decode(Double.self, forKey: .currCredits)
+        previousGPA = try values.decode([String: Double].self, forKey: .previousGPA)
+    }
+
+    // Encode
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(term, forKey: .term)
+        try container.encode(currGPA, forKey: .currGPA)
+        try container.encode(currCredits, forKey: .currCredits)
+        try container.encode(previousGPA, forKey: .previousGPA)
+    }
     
     // action methods
     func getCurrentGPA() -> Double {
-        let formattedGPA = round(self.currGPA * 100) / 100
+        let formattedGPA = round(currGPA * 100) / 100
         return formattedGPA
     }
     
@@ -64,6 +89,7 @@ class GPA {
     
     func addTermCourse(_ course: Course) {
         term.append(course)
+        currCredits += course.credits
     }
     
     func removeTermCourse(_ title: String) -> Bool {
@@ -93,7 +119,7 @@ class GPA {
 
         for course in term {
             let credits = Double(course.getCourseCredit())
-            self.addCredits(credits)
+            addCredits(credits)
             let grade = course.getCourseGrade()
             let gradePoints = credits * grades[grade]!
             
@@ -102,7 +128,7 @@ class GPA {
         
         // gpa formula
         let calculatedGPA = (totalQualityPoints / currCredits)
-        self.setCurrentGPA(calculatedGPA)
+        setCurrentGPA(calculatedGPA)
     }
     
     func calculateCumulativeGPA() -> Double {

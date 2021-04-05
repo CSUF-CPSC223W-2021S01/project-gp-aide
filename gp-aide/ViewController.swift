@@ -19,24 +19,26 @@ class ViewController: UIViewController {
     @IBOutlet var gpaLabel: UILabel!
     
     var userGPA = GPA()
+    var readGPA: Double = 0.0
+    var readCredits: Double = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        readCourseFromDisk()
+        readGPAFromDisk()
     }
 
     // Add a course to gpa object
     @IBAction func addCourse(_ sender: Any) {
         let currCourseName = courseName.text
         let currCourseGrade = courseGrade.text
-        let currCourseUnits = Int(courseUnits.text!)
+        let currCourseUnits = Double(courseUnits.text!)
         
         // checks to see if all fields have been inputed correctly
         if currCourseName != nil, currCourseGrade != nil, currCourseUnits != nil {
             let currCourse = Course(currCourseName!, classGrade: currCourseGrade!, classCredits: currCourseUnits!)
             userGPA.addTermCourse(currCourse)
-            saveCourseToDisk(currCourse)
+            saveGPAToDisk(userGPA)
             // Hide Error Message if on and show success message
             errorLabel.isHidden = true
             successLabel.isHidden = false
@@ -61,22 +63,29 @@ class ViewController: UIViewController {
         gpaLabel.text = "GPA: \(String(userGPA.getCurrentGPA()))"
     }
     
-    // save data to Disk
-    func saveCourseToDisk(_ currCourse: Course) {
+    // save data to Disk, store GPA instance
+    func saveGPAToDisk(_ currGPA: GPA) {
         let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(currCourse) {
-            UserDefaults.standard.set(encoded, forKey: "SavedCourse")
+        if let encoded = try? encoder.encode(currGPA) {
+            // makes Data JSON
+            if let json = String(data: encoded, encoding: .utf8) {
+                print(json)
+            }
+            UserDefaults.standard.set(encoded, forKey: "SavedGPA")
         }
-        
-        print("Course saved to UserDefaults")
+        print("GPA saved to UserDefaults")
     }
     
-    // read data from Disk
-    func readCourseFromDisk() {
-        if let savedCourse = UserDefaults.standard.object(forKey: "SavedCourse") as? Data {
-            let decoder = JSONDecoder()
-            if let loadedCourse = try? decoder.decode(Course.self, from: savedCourse) {
-                print(loadedCourse.title)
+    // read data from Disk, read the term so that the calculate GPA works.
+    func readGPAFromDisk() {
+        if let savedGPA = UserDefaults.standard.object(forKey: "SavedGPA") as? Data {
+            let decoded = JSONDecoder()
+            if let loadedGPA = try? decoded.decode(GPA.self, from: savedGPA) {
+                print(loadedGPA.currGPA)
+                print(loadedGPA.currCredits)
+                readGPA = loadedGPA.currGPA
+                readCredits = loadedGPA.currCredits
+                userGPA.setPreviousGPA(loadedGPA.currGPA, loadedGPA.currCredits)
             }
         }
     }

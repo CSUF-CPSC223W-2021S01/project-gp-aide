@@ -67,13 +67,14 @@ class CourseTests: XCTestCase {
         currCourse.setCourseTitle("SecondCourse")
         currCourse.setCourseGrade("B")
         currCourse.setCourseCredit(4)
-        XCTAssert(currCourse.printOut == "SecondCourse: Grade Received B. Credits for course: 4 cr \n")
+        print(currCourse.printOut)
+        XCTAssert(currCourse.printOut == "SecondCourse: Grade Received B. Credits for course: 4.0 cr \n")
     }
 
     func testPrintOut() {
         let currCourse = Course("FirstCourse", classGrade: "A+", classCredits: 3)
         currCourse.setCourseTitle("NewCourseTitle")
-        XCTAssert(currCourse.printOut == "NewCourseTitle: Grade Received A+. Credits for course: 3 cr \n")
+        XCTAssert(currCourse.printOut == "NewCourseTitle: Grade Received A+. Credits for course: 3.0 cr \n")
     }
 
     func testCourseDeInitializer() {
