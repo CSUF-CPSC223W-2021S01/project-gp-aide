@@ -24,6 +24,7 @@ class GPA: Codable {
         "D-": 0.7,
         "F": 0.0
     ]
+
     
     // list of classes for current term
     var term: [Course]
@@ -121,7 +122,7 @@ class GPA: Codable {
             let credits = Double(course.getCourseCredit())
             addCredits(credits)
             let grade = course.getCourseGrade()
-            let gradePoints = credits * grades[grade]!
+            let gradePoints = credits * GRADES[grade]!
             
             totalQualityPoints += gradePoints
         }
