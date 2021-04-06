@@ -1,0 +1,54 @@
+//
+//  CodableTests.swift
+//  gp-aideTests
+//
+//  Created by Samuel Sandoval on 4/5/21.
+//
+@testable import gp_aide
+import XCTest
+
+class CodableTests: XCTestCase {
+
+    override func setUpWithError() throws {
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDownWithError() throws {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    }
+
+    func testSaveToDiskandReadFromDisk1() {
+        let currGPA = GPA()
+        let vc = ViewController()
+        let studentCourse = Course("CS 101", classGrade: "A+", classCredits: 3)
+        currGPA.addTermCourse(studentCourse)
+        vc.saveGPAToDisk(currGPA)
+        vc.readGPAFromDisk()
+        XCTAssertEqual(currGPA.currCredits, vc.readCredits)
+    }
+    func testSaveToDiskandReadFromDisk2() {
+        let currGPA = GPA()
+        let vc = ViewController()
+        var studentCourse = Course("CS 101", classGrade: "A+", classCredits: 3)
+        currGPA.addTermCourse(studentCourse)
+        studentCourse = Course("CS 223", classGrade: "B-", classCredits: 3)
+        currGPA.addTermCourse(studentCourse)
+        vc.saveGPAToDisk(currGPA)
+        vc.readGPAFromDisk()
+        XCTAssertEqual(currGPA.currCredits, vc.readCredits)
+    }
+    func testSaveToDiskandReadFromDisk3() {
+        let currGPA = GPA()
+        let vc = ViewController()
+        var studentCourse = Course("CS 101", classGrade: "A+", classCredits: 3)
+        currGPA.addTermCourse(studentCourse)
+        studentCourse = Course("CS 121", classGrade: "B+", classCredits: 3)
+        currGPA.addTermCourse(studentCourse)
+        studentCourse = Course("CS 223", classGrade: "B-", classCredits: 3)
+        currGPA.addTermCourse(studentCourse)
+        vc.saveGPAToDisk(currGPA)
+        vc.readGPAFromDisk()
+        XCTAssertEqual(currGPA.currCredits, vc.readCredits)
+    }
+
+}
