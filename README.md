@@ -10,7 +10,7 @@ The inputted data is locally stored, so the user does not have to enter their gr
 ### Features ✨
 
 - [x] Persistent storage via [`Codeable`](https://developer.apple.com/documentation/swift/codable).
-- [x] User interface using [SwiftUI](https://developer.apple.com/xcode/swiftui/).
+- [x] User interface using [UIKit](https://developer.apple.com/documentation/uikit).
 - [ ] Discover other students who will be taking the same classes before the semester begins.
 
 ## Demo 🙈
