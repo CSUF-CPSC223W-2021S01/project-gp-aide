@@ -16,3 +16,10 @@ The inputted data is locally stored, so the user does not have to enter their gr
 ## Demo 🙈
 
 ![Main screen mockup](media/mockup.png)
+
+## The Team 🏆
+
+- [Samuel Sandoval](https://github.com/samuelsandoval1)
+- [Jacob Nguyen](https://github.com/barrotbake)
+- [Ethan Davidson](https://github.com/EthanThatOneKid)
+- [Sergio Herrera](https://github.com/Herrera741)
