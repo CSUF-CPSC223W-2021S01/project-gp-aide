@@ -122,7 +122,7 @@ class GPA: Codable {
             let credits = Double(course.getCourseCredit())
             addCredits(credits)
             let grade = course.getCourseGrade()
-            let gradePoints = credits * GRADES[grade]!
+            let gradePoints = credits * grades[grade]!
             
             totalQualityPoints += gradePoints
         }

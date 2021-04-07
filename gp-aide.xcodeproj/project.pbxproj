@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		334FBC2D25F833AD007295E6 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334FBC2C25F833AC007295E6 /* Course.swift */; };
+		33690E57261BCD3B00A7615D /* CodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33690E56261BCD3B00A7615D /* CodableTests.swift */; };
 		33D1002425F949E8009657C2 /* CourseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D1002325F949E8009657C2 /* CourseTests.swift */; };
 		7A11C90425F9639700FB2A37 /* GPA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11C90325F9639700FB2A37 /* GPA.swift */; };
 		7A5DC59A2603287900F9AC04 /* GPA_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5DC5992603287900F9AC04 /* GPA_Tests.swift */; };
@@ -18,7 +19,6 @@
 		81E657F825E593A100F6F42B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E657F625E593A100F6F42B /* Main.storyboard */; };
 		81E657FA25E593A200F6F42B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81E657F925E593A200F6F42B /* Assets.xcassets */; };
 		81E657FD25E593A200F6F42B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E657FB25E593A200F6F42B /* LaunchScreen.storyboard */; };
-		81E6580825E593A200F6F42B /* gp_aideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E6580725E593A200F6F42B /* gp_aideTests.swift */; };
 		81E6581325E593A200F6F42B /* gp_aideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E6581225E593A200F6F42B /* gp_aideUITests.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		334FBC2C25F833AC007295E6 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		33690E56261BCD3B00A7615D /* CodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableTests.swift; sourceTree = "<group>"; };
 		33D1002325F949E8009657C2 /* CourseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTests.swift; sourceTree = "<group>"; };
 		7A11C90325F9639700FB2A37 /* GPA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPA.swift; sourceTree = "<group>"; };
 		7A5DC5992603287900F9AC04 /* GPA_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPA_Tests.swift; sourceTree = "<group>"; };
@@ -54,7 +55,6 @@
 		81E657FC25E593A200F6F42B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81E657FE25E593A200F6F42B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81E6580325E593A200F6F42B /* gp-aideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "gp-aideTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		81E6580725E593A200F6F42B /* gp_aideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gp_aideTests.swift; sourceTree = "<group>"; };
 		81E6580925E593A200F6F42B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81E6580E25E593A200F6F42B /* gp-aideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "gp-aideUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E6581225E593A200F6F42B /* gp_aideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gp_aideUITests.swift; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 		81E6580625E593A200F6F42B /* gp-aideTests */ = {
 			isa = PBXGroup;
 			children = (
-				81E6580725E593A200F6F42B /* gp_aideTests.swift */,
+				33690E56261BCD3B00A7615D /* CodableTests.swift */,
 				33D1002325F949E8009657C2 /* CourseTests.swift */,
 				81E6580925E593A200F6F42B /* Info.plist */,
 				7A5DC5992603287900F9AC04 /* GPA_Tests.swift */,
@@ -288,7 +288,7 @@
 			files = (
 				7A5DC59A2603287900F9AC04 /* GPA_Tests.swift in Sources */,
 				33D1002425F949E8009657C2 /* CourseTests.swift in Sources */,
-				81E6580825E593A200F6F42B /* gp_aideTests.swift in Sources */,
+				33690E57261BCD3B00A7615D /* CodableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
