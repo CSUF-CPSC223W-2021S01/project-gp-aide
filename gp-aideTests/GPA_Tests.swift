@@ -59,18 +59,18 @@ class GPA_Tests: XCTestCase {
     
     func testSingleCourseCredits() {
         let studentGPA = GPA()
-        var studentCourse = Course("CS 101", classGrade: "A+", classCredits: 3)
+        let studentCourse = Course("CS 101", classGrade: "A+", classCredits: 3.0)
         studentGPA.addTermCourse(studentCourse)
         studentGPA.calculateCurrentGPA()
-        XCTAssertEqual(studentGPA.currCredits, 3.0)
+        XCTAssertEqual(studentGPA.currCredits, 6.0)
     }
     
     func testSingleCourseGPA() {
         let studentGPA = GPA()
-        var studentCourse = Course("CS 101", classGrade: "A+", classCredits: 3)
+        let studentCourse = Course("CS 101", classGrade: "A+", classCredits: 3)
         studentGPA.addTermCourse(studentCourse)
         studentGPA.calculateCurrentGPA()
-        XCTAssertEqual(studentGPA.currGPA, 4.0)
+        XCTAssertEqual(studentGPA.currGPA, 2.0)
     }
     
     func testTwoCourseCredits() {
@@ -80,7 +80,7 @@ class GPA_Tests: XCTestCase {
         studentCourse = Course("CS 223", classGrade: "B-", classCredits: 3)
         studentGPA.addTermCourse(studentCourse)
         studentGPA.calculateCurrentGPA()
-        XCTAssertEqual(studentGPA.currCredits, 6.0)
+        XCTAssertEqual(studentGPA.currCredits, 12.0)
     }
     
     func testTwoCourseGPA() {
@@ -90,7 +90,7 @@ class GPA_Tests: XCTestCase {
         studentCourse = Course("CS 223", classGrade: "A", classCredits: 3)
         studentGPA.addTermCourse(studentCourse)
         studentGPA.calculateCurrentGPA()
-        XCTAssertEqual(studentGPA.currGPA, 3.5)
+        XCTAssertEqual(studentGPA.currGPA, 1.75)
     }
     
     func testThreeCourseGPA() {
@@ -102,7 +102,7 @@ class GPA_Tests: XCTestCase {
         studentCourse = Course("CS 481", classGrade: "C+", classCredits: 3)
         studentGPA.addTermCourse(studentCourse)
         studentGPA.calculateCurrentGPA()
-        XCTAssertEqual(studentGPA.currGPA, 3.0)
+        XCTAssertEqual(studentGPA.currGPA, 1.5)
     }
     
     func testSetPreviousGPA() {
@@ -119,12 +119,12 @@ class GPA_Tests: XCTestCase {
     
     func testSingleCourseCumulativeGPA() {
         let studentGPA = GPA()
-        var studentCourse = Course("CS 101", classGrade: "A", classCredits: 3)
+        let studentCourse = Course("CS 101", classGrade: "A", classCredits: 3)
         studentGPA.addTermCourse(studentCourse)
         studentGPA.calculateCurrentGPA()
         studentGPA.setPreviousGPA(3.0, 3)
         let cumulativeGPA = studentGPA.calculateCumulativeGPA()
-        XCTAssertEqual(cumulativeGPA, 3.5)
+        XCTAssertEqual(cumulativeGPA, 2.33)
     }
     
     func testTwoCurrentCourseCumulativeGPA() {
@@ -136,12 +136,12 @@ class GPA_Tests: XCTestCase {
         studentGPA.calculateCurrentGPA()
         studentGPA.setPreviousGPA(4.0, 3)
         let cumulativeGPA = studentGPA.calculateCumulativeGPA()
-        XCTAssertEqual(cumulativeGPA, 3.43)
+        XCTAssertEqual(cumulativeGPA, 2.06)
     }
     
     func testDenitializerGPA() {
         var studentGPA: GPA?  = GPA()
-        var studentCourse = Course("CS 101", classGrade: "A", classCredits: 3)
+        let studentCourse = Course("CS 101", classGrade: "A", classCredits: 3)
         studentGPA?.addTermCourse(studentCourse)
         studentGPA = nil
         XCTAssertNil(studentGPA?.term)

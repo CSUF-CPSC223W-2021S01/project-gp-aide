@@ -8,57 +8,85 @@
 import UIKit
 
 class ViewController: UIViewController {
-    //Course name, grad, and unit text fields
-    @IBOutlet weak var courseName: UITextField!
-    @IBOutlet weak var courseGrade: UITextField!
-    @IBOutlet weak var courseUnits: UITextField!
+    // Course name, grad, and unit text fields
+    @IBOutlet var courseName: UITextField!
+    @IBOutlet var courseGrade: UITextField!
+    @IBOutlet var courseUnits: UITextField!
     
-    //User Feedback Labels
-    @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var successLabel: UILabel!
-    @IBOutlet weak var gpaLabel: UILabel!
+    // User Feedback Labels
+    @IBOutlet var errorLabel: UILabel!
+    @IBOutlet var successLabel: UILabel!
+    @IBOutlet var gpaLabel: UILabel!
     
     var userGPA = GPA()
+    var readGPA: Double = 0.0
+    var readCredits: Double = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        readGPAFromDisk()
     }
-    //Add a course to gpa object
+
+    // Add a course to gpa object
     @IBAction func addCourse(_ sender: Any) {
         let currCourseName = courseName.text
         let currCourseGrade = courseGrade.text
-        let currCourseUnits = Int(courseUnits.text!)
+        let currCourseUnits = Double(courseUnits.text!)
         
-        //checks to see if all fields have been inputed correctly
-        if currCourseName != nil && currCourseGrade != nil && currCourseUnits != nil {
-            let currCourse = Course(currCourseName!, classGrade:currCourseGrade!, classCredits:currCourseUnits!)
+        // checks to see if all fields have been inputed correctly
+        if currCourseName != nil, currCourseGrade != nil, currCourseUnits != nil {
+            let currCourse = Course(currCourseName!, classGrade: currCourseGrade!, classCredits: currCourseUnits!)
             userGPA.addTermCourse(currCourse)
-            
-            //Hide Error Message if on and show success message
+            saveGPAToDisk(userGPA)
+            // Hide Error Message if on and show success message
             errorLabel.isHidden = true
             successLabel.isHidden = false
             successLabel.text = "Success added \(currCourse.title) grade: \(currCourse.grade) and \(currCourse.credits) units"
             
-            //reset text fields to empty
+            // reset text fields to empty
             courseName.text = ""
             courseGrade.text = ""
             courseUnits.text = ""
         } else {
-            //show error label
+            // show error label
             errorLabel.isHidden = false
             successLabel.isHidden = true
         }
-
-      
     }
     
-    //calculate GPA
+    // calculate GPA
     @IBAction func calculateGPA(_ sender: Any) {
         errorLabel.isHidden = true
         successLabel.isHidden = true
         userGPA.calculateCurrentGPA()
         gpaLabel.text = "GPA: \(String(userGPA.getCurrentGPA()))"
     }
+    
+    // save data to Disk, store GPA instance
+    func saveGPAToDisk(_ currGPA: GPA) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(currGPA) {
+            // makes Data JSON
+            if let json = String(data: encoded, encoding: .utf8) {
+                print(json)
+            }
+            UserDefaults.standard.set(encoded, forKey: "SavedGPA")
+        }
+        print("GPA saved to UserDefaults")
+    }
+    
+    // read data from Disk, read the term so that the calculate GPA works.
+    func readGPAFromDisk() {
+        if let savedGPA = UserDefaults.standard.object(forKey: "SavedGPA") as? Data {
+            let decoded = JSONDecoder()
+            if let loadedGPA = try? decoded.decode(GPA.self, from: savedGPA) {
+                print(loadedGPA.currGPA)
+                print(loadedGPA.currCredits)
+                readGPA = loadedGPA.currGPA
+                readCredits = loadedGPA.currCredits
+                userGPA.setPreviousGPA(loadedGPA.currGPA, loadedGPA.currCredits)
+            }
+        }
+    }
 }
-

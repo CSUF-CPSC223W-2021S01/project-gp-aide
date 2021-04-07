@@ -7,17 +7,17 @@
 
 import Foundation
 
-class Course {
+class Course: Decodable, Encodable {
     var title: String
     var grade: String
-    var credits: Int
+    var credits: Double
     var printOut: String {
         var courseStr: String = ""
         courseStr += "\(title): Grade Received \(grade). Credits for course: \(credits) cr \n"
         return courseStr
     }
 
-    init(_ classTitle: String, classGrade: String, classCredits: Int) {
+    init(_ classTitle: String, classGrade: String, classCredits: Double) {
         self.title = classTitle
         self.grade = classGrade
         self.credits = 0
@@ -34,7 +34,7 @@ class Course {
         grade = classGrade
     }
 
-    func setCourseCredit(_ classCredits: Int) {
+    func setCourseCredit(_ classCredits: Double) {
         if classCredits <= 5, classCredits > 0 {
             credits = classCredits
         }
@@ -48,7 +48,7 @@ class Course {
         return grade
     }
 
-    func getCourseCredit() -> Int {
+    func getCourseCredit() -> Double {
         return credits
     }
 
