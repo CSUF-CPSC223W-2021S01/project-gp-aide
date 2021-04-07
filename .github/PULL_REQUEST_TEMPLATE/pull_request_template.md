@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 ## Proposed Changes
-A clear and concise description of the changes made.
+A clear and concise description of the changes proposed.
 
 ## Types of Changes
 What types of changes does your code introduce to the Project?
