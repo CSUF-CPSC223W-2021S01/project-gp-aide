@@ -90,7 +90,6 @@ class GPA: Codable {
     
     func addTermCourse(_ course: Course) {
         term.append(course)
-        currCredits += course.credits
     }
     
     func removeTermCourse(_ title: String) -> Bool {
@@ -108,7 +107,8 @@ class GPA: Codable {
     }
     
     func addCredits(_ credits: Double) {
-        currCredits += credits
+//        currCredits += credits
+        self.currCredits += credits
     }
     
     func removeCredits(_ credits: Double) {
@@ -119,10 +119,10 @@ class GPA: Codable {
         var totalQualityPoints = 0.0
 
         for course in term {
-            let credits = Double(course.getCourseCredit())
-            addCredits(credits)
-            let grade = course.getCourseGrade()
-            let gradePoints = credits * grades[grade]!
+            let courseCredits = Double(course.getCourseCredit())
+            addCredits(courseCredits)
+            let courseGrade = course.getCourseGrade()
+            let gradePoints = courseCredits * grades[courseGrade]!
             
             totalQualityPoints += gradePoints
         }
