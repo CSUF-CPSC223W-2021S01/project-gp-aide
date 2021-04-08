@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         if currCourseName != nil, currCourseGrade != nil, currCourseUnits != nil {
             let currCourse = Course(currCourseName!, classGrade: currCourseGrade!, classCredits: currCourseUnits!)
             userGPA.addTermCourse(currCourse)
-            saveGPAToDisk(userGPA)
+            
             // Hide Error Message if on and show success message
             errorLabel.isHidden = true
             successLabel.isHidden = false
@@ -60,6 +60,8 @@ class ViewController: UIViewController {
         errorLabel.isHidden = true
         successLabel.isHidden = true
         userGPA.calculateCurrentGPA()
+        userGPA.setCurrentGPA(userGPA.getCurrentGPA())
+        saveGPAToDisk(userGPA)
         gpaLabel.text = "GPA: \(String(userGPA.getCurrentGPA()))"
     }
     
@@ -81,8 +83,8 @@ class ViewController: UIViewController {
         if let savedGPA = UserDefaults.standard.object(forKey: "SavedGPA") as? Data {
             let decoded = JSONDecoder()
             if let loadedGPA = try? decoded.decode(GPA.self, from: savedGPA) {
-                print(loadedGPA.currGPA)
-                print(loadedGPA.currCredits)
+                print(" LoadedGPA current gpa: \(loadedGPA.currGPA)")
+                print(" LoadedGPA current credits:  \(loadedGPA.currCredits)")
                 readGPA = loadedGPA.currGPA
                 readCredits = loadedGPA.currCredits
                 userGPA.setPreviousGPA(loadedGPA.currGPA, loadedGPA.currCredits)
