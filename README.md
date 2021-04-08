@@ -13,6 +13,11 @@ The inputted data is locally stored, so the user does not have to enter their gr
 - [x] User interface using [UIKit](https://developer.apple.com/documentation/uikit).
 - [ ] Discover other students who will be taking the same classes before the semester begins.
 
+<aside>
+  
+  ![Main screen mockup](media/mockup.png)
+</aside>
+
 ## Demo 🙈
 
 ![Main screen mockup](media/mockup.png)
