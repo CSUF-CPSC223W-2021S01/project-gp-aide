@@ -114,11 +114,11 @@
 				81E657F225E593A100F6F42B /* SceneDelegate.swift */,
 				81E657F425E593A100F6F42B /* ViewController.swift */,
 				81E657F625E593A100F6F42B /* Main.storyboard */,
+				7A11C90325F9639700FB2A37 /* GPA.swift */,
 				334FBC2C25F833AC007295E6 /* Course.swift */,
 				81E657F925E593A200F6F42B /* Assets.xcassets */,
 				81E657FB25E593A200F6F42B /* LaunchScreen.storyboard */,
 				81E657FE25E593A200F6F42B /* Info.plist */,
-				7A11C90325F9639700FB2A37 /* GPA.swift */,
 			);
 			path = "gp-aide";
 			sourceTree = "<group>";

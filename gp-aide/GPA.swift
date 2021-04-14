@@ -107,7 +107,6 @@ class GPA: Codable {
     }
     
     func addCredits(_ credits: Double) {
-//        currCredits += credits
         self.currCredits += credits
     }
     
@@ -123,10 +122,8 @@ class GPA: Codable {
             addCredits(courseCredits)
             let courseGrade = course.getCourseGrade()
             let gradePoints = courseCredits * grades[courseGrade]!
-            
             totalQualityPoints += gradePoints
         }
-        
         // gpa formula
         let calculatedGPA = (totalQualityPoints / currCredits)
         setCurrentGPA(calculatedGPA)
