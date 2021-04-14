@@ -60,9 +60,17 @@ class ViewController: UIViewController {
         errorLabel.isHidden = true
         successLabel.isHidden = true
         userGPA.calculateCurrentGPA()
-        userGPA.setCurrentGPA(userGPA.getCurrentGPA())
-        saveGPAToDisk(userGPA)
-        gpaLabel.text = "GPA: \(String(userGPA.getCurrentGPA()))"
+        if userGPA.getCurrentGPA().isNaN {
+            print("Alert comes on!")
+            let alert = UIAlertController(title: "Missing Course", message: "You need to enter a course before calculating GPA", preferredStyle: .alert)
+            present(alert, animated: true)
+            let okAction = UIAlertAction(title: "Ok", style: .default)
+            alert.addAction(okAction)
+        } else {
+            userGPA.setCurrentGPA(userGPA.getCurrentGPA())
+            saveGPAToDisk(userGPA)
+            gpaLabel.text = "GPA: \(String(userGPA.getCurrentGPA()))"
+        }
     }
     
     // save data to Disk, store GPA instance
