@@ -23,19 +23,23 @@ class ViewController: UIViewController {
     @IBOutlet var errorLabel: UILabel!
     @IBOutlet var successLabel: UILabel!
     @IBOutlet var gpaLabel: UILabel!
-    @IBOutlet var tableOfCourses: UITableView!
+    @IBOutlet weak var tableOfCourses: UITableView!
     
     // ** People VC **
-    @IBOutlet var tableOfPeople: UITableView!
+    @IBOutlet weak var tableOfPeople: UITableView!
     
     var userGPA = GPA()
     var readGPA: Double = 0.0
     var readCredits: Double = 0.0
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         readGPAFromDisk()
+        tableOfCourses.delegate = self
+        tableOfCourses.dataSource = self
+        
     }
 
     // Add a course to gpa object
@@ -110,8 +114,25 @@ class ViewController: UIViewController {
         }
     }
     
-    // sender
+    // prepare Segue function template, might useful for later
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard (sender as? UIButton) != nil else { return }
     }
 }
+
+extension ViewController: UITableViewDataSource, UITableViewDelegate{
+    func tableView(_ tableOfCourses: UITableView, didSelectRowAt indexPath: IndexPath) {
+       print("You tapped me!")
+   }
+    func tableView(_ tableOfCourses: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableOfCourses.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = "Hello World"
+        return cell
+    }
+    
+    func tableView(_ tableOfCourses: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+}
+
+
