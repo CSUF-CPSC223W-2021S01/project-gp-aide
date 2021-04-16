@@ -156,7 +156,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="LJH-KK-JTP" kind="show" id="Ko6-gc-Ehd"/>
+                                            <segue destination="LJH-KK-JTP" kind="presentation" identifier="showPeople" id="e1h-2l-kYV"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -191,12 +191,12 @@
             </objects>
             <point key="canvasLocation" x="981.15942028985512" y="123.88392857142857"/>
         </scene>
-        <!--View Controller-->
+        <!--People-->
         <scene sceneID="ve1-Wc-vTn">
             <objects>
-                <viewController id="LJH-KK-JTP" customClass="ViewController" customModule="gp_aide" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="People" id="LJH-KK-JTP" userLabel="People" customClass="ViewController" customModule="gp_aide" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LfW-we-kvh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DHa-hK-w2v">
