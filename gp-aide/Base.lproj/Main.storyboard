@@ -155,6 +155,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="345" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="LJH-KK-JTP" kind="show" id="Ko6-gc-Ehd"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -226,6 +229,7 @@
                         <viewLayoutGuide key="safeArea" id="QIq-gV-qol"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Iei-D8-7Ol"/>
                     <connections>
                         <outlet property="tableOfPeople" destination="fYI-Xi-N37" id="ReI-Sk-TW2"/>
                         <outlet property="tableView" destination="fYI-Xi-N37" id="QmQ-gf-s9b"/>

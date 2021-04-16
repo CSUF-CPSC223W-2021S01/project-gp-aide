@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // ** Login VC **
     @IBOutlet var userName: UITextField!
     @IBOutlet var userPassword: UITextField!
@@ -29,6 +29,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableOfPeople: UITableView!
     
     var userGPA = GPA()
+    var courses:[Course] = [] {
+        didSet{
+            tableOfCourses.reloadData()
+        }
+    }
     var readGPA: Double = 0.0
     var readCredits: Double = 0.0
 
@@ -38,8 +43,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         readGPAFromDisk()
     }
+// MARK: - Add a course to userGPA object
 
-    // Add a course to gpa object
     @IBAction func addCourse(_ sender: Any) {
         let currCourseName = courseName.text
         let currCourseGrade = courseGrade.text
@@ -49,6 +54,8 @@ class ViewController: UIViewController {
         if currCourseName != nil, currCourseGrade != nil, currCourseUnits != nil {
             let currCourse = Course(currCourseName!, classGrade: currCourseGrade!, classCredits: currCourseUnits!)
             userGPA.addTermCourse(currCourse)
+            courses.append(currCourse)
+            print("Courses arr size \(courses.count)")
             
             // Hide Error Message if on and show success message
             errorLabel.isHidden = true
@@ -65,8 +72,8 @@ class ViewController: UIViewController {
             successLabel.isHidden = true
         }
     }
+// MARK: - calculate GPA Method
     
-    // calculate GPA
     @IBAction func calculateGPA(_ sender: Any) {
         errorLabel.isHidden = true
         successLabel.isHidden = true
@@ -83,6 +90,7 @@ class ViewController: UIViewController {
             gpaLabel.text = "GPA: \(String(userGPA.getCurrentGPA()))"
         }
     }
+// MARK: - Codable Methods
     
     // save data to Disk, store GPA instance
     func saveGPAToDisk(_ currGPA: GPA) {
@@ -115,22 +123,23 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard (sender as? UIButton) != nil else { return }
     }
-}
-
-extension ViewController: UITableViewDataSource, UITableViewDelegate{
+// MARK: - Table View Functions
+    
     func tableView(_ tableOfCourses: UITableView, didSelectRowAt indexPath: IndexPath) {
        print("You tapped me!")
    }
     func tableView(_ tableOfCourses: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableOfCourses.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        cell.textLabel?.text = "Hello World"
+        if courses.count > 0 {
+            let courseObj = courses[indexPath.row]
+            let courseTitle = courseObj.getCourseTitle()
+            cell.textLabel?.text = courseTitle
+        }
         return cell
     }
     
     func tableView(_ tableOfCourses: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return courses.count
     }
 }
-
 
