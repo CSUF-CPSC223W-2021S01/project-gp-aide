@@ -157,6 +157,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="fQo-uI-ag8"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="aQX-EI-EjS"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Courses Adding" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ifu-FM-U31">
                                 <rect key="frame" x="121" y="490" width="173" height="30"/>
@@ -213,6 +217,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="LJH-KK-JTP" id="ung-o7-dby"/>
+                                    <outlet property="delegate" destination="LJH-KK-JTP" id="THZ-oz-7dP"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QIq-gV-qol"/>

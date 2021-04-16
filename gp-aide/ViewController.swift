@@ -37,9 +37,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         readGPAFromDisk()
-        tableOfCourses.delegate = self
-        tableOfCourses.dataSource = self
-        
     }
 
     // Add a course to gpa object
@@ -126,6 +123,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
    }
     func tableView(_ tableOfCourses: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableOfCourses.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
         cell.textLabel?.text = "Hello World"
         return cell
     }
