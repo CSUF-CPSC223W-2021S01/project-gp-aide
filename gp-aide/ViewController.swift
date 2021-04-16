@@ -8,6 +8,12 @@
 import UIKit
 
 class ViewController: UIViewController {
+    // ** Login VC **
+    @IBOutlet var userName: UITextField!
+    @IBOutlet var userPassword: UITextField!
+    @IBOutlet var userSocialMedia: UITextField!
+
+    // ** Calculator VC **
     // Course name, grad, and unit text fields
     @IBOutlet var courseName: UITextField!
     @IBOutlet var courseGrade: UITextField!
@@ -17,6 +23,10 @@ class ViewController: UIViewController {
     @IBOutlet var errorLabel: UILabel!
     @IBOutlet var successLabel: UILabel!
     @IBOutlet var gpaLabel: UILabel!
+    @IBOutlet var tableOfCourses: UITableView!
+    
+    // ** People VC **
+    @IBOutlet var tableOfPeople: UITableView!
     
     var userGPA = GPA()
     var readGPA: Double = 0.0
@@ -98,5 +108,10 @@ class ViewController: UIViewController {
                 userGPA.setPreviousGPA(loadedGPA.currGPA, loadedGPA.currCredits)
             }
         }
+    }
+    
+    // sender
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard (sender as? UIButton) != nil else { return }
     }
 }
