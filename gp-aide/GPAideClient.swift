@@ -44,6 +44,6 @@ func getAsciiCodeFromSymbol(from symbol: String) -> Int {
   return Int(scalar[scalar.startIndex].value)
 }
 
-func getSymbolFromAsciiCode(from: asciiCode: Int) -> String {
+func getSymbolFromAsciiCode(from asciiCode: Int) -> String {
   return String(UnicodeScalar(UInt8(asciiCode)))
 }
