@@ -7,23 +7,30 @@
 
 import Foundation
 
+struct Course {
+  var title: String
+  var letterGrade: String
+}
+
 struct Classmate {
   var username: String
   var contactUrl: String
-  var courses: Course[]
+  var courses: [Course]
 }
 
-struct User: Classmate {
+struct User {
+  var username: String
+  var contactUrl: String
+  var courses: [Course]
   var isPublic: Bool
   var hashedPassword: String
 }
 
 struct GPAideResponse {
-  var isSuccessful: String
+  var isSuccessful: Bool
   var message: String?
 }
 
-// Original Issue: https://github.com/CSUF-CPSC223W-2021S01/project-gp-aide/issues/35#issuecomment-818950235
 protocol GPAideClient: class {
   func fetchClassmates(taking courseTitle: String) -> [Classmate]
   func pullInfo(username: String, password: String) -> User

@@ -38,3 +38,40 @@ let GRADES = [
   "D-": 0.7,
   "F": 0.0
 ]
+
+// --- Simulated Client Constants ---
+let TEST_CLASSMATES = [
+  Classmate(
+    username: "EthanThatOneKid",
+    contactUrl: "https://github.com/EthanThatOneKid",
+    courses: []
+  ),
+  Classmate(
+    username: "SamuelThatOneKid",
+    contactUrl: "https://samuelsandoval.me",
+    courses: []
+  ),
+  Classmate(
+    username: "SergioThatOneKid",
+    contactUrl: "https://github.com/Herrera741",
+    courses: []
+  ),
+  Classmate(
+    username: "JacobThatOneKid",
+    contactUrl: "https://github.com/barrotbake",
+    courses: []
+  )
+]
+
+let TEST_USER = User(
+  username: "EthanThatOneKid",
+  contactUrl: "https://github.com/EthanThatOneKid",
+  courses: [],
+  isPublic: true,
+  hashedPassword: "THIS_DOESNT_MATTER_YET"
+)
+
+let TEST_RESPONSE = GPAideResponse(
+  isSuccessful: true,
+  message: "This request was executed successfully!"
+)
