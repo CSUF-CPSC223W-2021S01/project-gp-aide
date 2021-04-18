@@ -23,9 +23,6 @@ class SimulatedClientTests: XCTestCase {
     func testFetchClassmates() {
         let classmates = self.client.fetchClassmates(taking: "courseTitle1")
         XCTAssertEqual(classmates, TEST_CLASSMATES)
-
-        print(client.pushInfo(TEST_USER))
-        print(client.discardInfo(TEST_USER))
     }
 
     func testPullInfo() {
