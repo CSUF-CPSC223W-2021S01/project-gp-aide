@@ -6,21 +6,21 @@
 //
 
 // Letter grades
-enum LetterGrade: String {
-  case a_plus = "A+"
-  case a = "A+"
-  case a_minus = "A+"
-  case b_plus = "A+"
-  case b = "A+"
-  case b_minus = "A+"
-  case c_plus = "A+"
-  case c = "A+"
-  case c_minus = "A+"
-  case d_plus = "A+"
-  case d = "A+"
-  case d_minus = "A+"
-  case a_plus = "A+"
-}
+//enum LetterGrade: String {
+//  case a_plus = "A+"
+//  case a = "A+"
+//  case a_minus = "A+"
+//  case b_plus = "A+"
+//  case b = "A+"
+//  case b_minus = "A+"
+//  case c_plus = "A+"
+//  case c = "A+"
+//  case c_minus = "A+"
+//  case d_plus = "A+"
+//  case d = "A+"
+//  case d_minus = "A+"
+//  case a_plus = "A+"
+//}
 
 // Grade points for 4.0 scale
 let GRADES = [
