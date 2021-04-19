@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Course: Decodable, Encodable {
+class Course {
     var title: String
     var grade: String
     var credits: Double
