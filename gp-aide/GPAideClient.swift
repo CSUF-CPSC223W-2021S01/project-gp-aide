@@ -12,13 +12,21 @@ import Foundation
 //    var letterGrade: String
 //}
 
-struct Classmate {
+struct Classmate: Equatable {
+    static func == (lhs: Classmate, rhs: Classmate) -> Bool {
+        return lhs.username == rhs.username
+    }
+
     var username: String
     var contactUrl: String
     var courses: [Course]
 }
 
-struct User {
+struct User: Equatable {
+    static func == (lhs: User, rhs: User) -> Bool {
+        return lhs.username == rhs.username
+    }
+
     var username: String
     var contactUrl: String
     var courses: [Course]
