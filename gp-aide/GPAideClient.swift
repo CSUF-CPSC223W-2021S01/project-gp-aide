@@ -7,11 +7,6 @@
 
 import Foundation
 
-//struct Course {
-//    var title: String
-//    var letterGrade: String
-//}
-
 struct Classmate: Equatable {
     static func == (lhs: Classmate, rhs: Classmate) -> Bool {
         return lhs.username == rhs.username
