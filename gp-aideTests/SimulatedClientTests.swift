@@ -18,10 +18,39 @@ class SimulatedClientTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    func testClassmatesCount() {
+        let classmatesCount = TEST_CLASSMATES
+        XCTAssertEqual(classmatesCount.count, 4)
+    }
+    
+    func testFoundClassmatesByClassOne() {
+        let testCourse = "CPSC 223"
+        let foundClassmates = self.client.fetchClassmates(taking: testCourse)
+        XCTAssertEqual(foundClassmates.count, 4)
+    }
+    
+    func testFoundClassmatesByClassTwo() {
+        let testCourse = "CPSC 481"
+        let foundClassmates = self.client.fetchClassmates(taking: testCourse)
+        XCTAssertEqual(foundClassmates.count, 2)
+    }
+    
+    func testFoundClassmatesByClassThree() {
+        let testCourse = "CPSC 315"
+        let foundClassmates = self.client.fetchClassmates(taking: testCourse)
+        XCTAssertEqual(foundClassmates.count, 1)
+    }
+    
+    func testFoundClassmatesByClassFour() {
+        let testCourse = "CPSC 411"
+        let foundClassmates = self.client.fetchClassmates(taking: testCourse)
+        XCTAssertEqual(foundClassmates.count, 1)
+    }
 
-    func testFetchClassmates() {
+    func testNoClassmatesMatch() {
         let classmates = self.client.fetchClassmates(taking: "courseTitle1")
-        XCTAssertEqual(classmates, TEST_CLASSMATES)
+        XCTAssertEqual(classmates.count, 0)
     }
 
     func testPullInfo() {
@@ -38,4 +67,6 @@ class SimulatedClientTests: XCTestCase {
         let response = client.discardInfo(TEST_USER)
         XCTAssertTrue(response.isSuccessful)
     }
+    
+    
 }
