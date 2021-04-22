@@ -143,28 +143,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="srw-f9-Jyo">
-                                <rect key="frame" x="28" y="528" width="345" height="323"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="ieT-9o-oDJ">
-                                        <rect key="frame" x="0.0" y="28" width="345" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ieT-9o-oDJ" id="3kk-UQ-U3r">
-                                            <rect key="frame" x="0.0" y="0.0" width="345" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="LJH-KK-JTP" kind="presentation" identifier="showPeople" id="e1h-2l-kYV"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="fQo-uI-ag8"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="aQX-EI-EjS"/>
-                                </connections>
-                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Courses Adding" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ifu-FM-U31">
                                 <rect key="frame" x="121" y="490" width="173" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -175,6 +153,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="1NZ-b3-wss" appends="YES" id="uKd-eP-NyI"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Calculator" id="jsP-2m-LxL"/>
                     <connections>
@@ -184,60 +166,32 @@
                         <outlet property="errorLabel" destination="Msz-Ff-tqK" id="eCt-nY-Ve8"/>
                         <outlet property="gpaLabel" destination="Kxs-lp-Ay0" id="Hkg-5U-F3r"/>
                         <outlet property="successLabel" destination="eH8-3T-IAd" id="iIM-TA-teX"/>
-                        <outlet property="tableOfCourses" destination="srw-f9-Jyo" id="8Kp-em-7RL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="1NZ-b3-wss">
+                    <connections>
+                        <segue destination="V9d-C9-s34" kind="show" id="fHy-mD-eXG"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="981.15942028985512" y="123.88392857142857"/>
         </scene>
-        <!--People-->
-        <scene sceneID="ve1-Wc-vTn">
+        <!--View Controller-->
+        <scene sceneID="UEH-75-F1c">
             <objects>
-                <viewController storyboardIdentifier="People" id="LJH-KK-JTP" userLabel="People" customClass="ViewController" customModule="gp_aide" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LfW-we-kvh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                <viewController id="V9d-C9-s34" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nBB-1C-EN1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DHa-hK-w2v">
-                                <rect key="frame" x="0.0" y="33" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="People in your Course" id="GIj-Nk-YQO"/>
-                                </items>
-                            </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fYI-Xi-N37" userLabel="TableOfPeople">
-                                <rect key="frame" x="15" y="77" width="384" height="785"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="km7-IX-LCn">
-                                        <rect key="frame" x="0.0" y="28" width="384" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="km7-IX-LCn" id="CrS-t9-huI">
-                                            <rect key="frame" x="0.0" y="0.0" width="384" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="LJH-KK-JTP" id="ung-o7-dby"/>
-                                    <outlet property="delegate" destination="LJH-KK-JTP" id="THZ-oz-7dP"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="QIq-gV-qol"/>
+                        <viewLayoutGuide key="safeArea" id="wrk-pX-yrV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Iei-D8-7Ol"/>
-                    <connections>
-                        <outlet property="tableOfPeople" destination="fYI-Xi-N37" id="ReI-Sk-TW2"/>
-                        <outlet property="tableView" destination="fYI-Xi-N37" id="QmQ-gf-s9b"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="1Ef-r8-Wbr"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sok-fN-VgE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V4Y-nB-sGf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1934.7826086956522" y="123.88392857142857"/>
+            <point key="canvasLocation" x="1961" y="124"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BNc-kj-d6B">
