@@ -15,7 +15,7 @@ The inputted data is locally stored, so the user does not have to enter their gr
 
 ## Demo 🙈
 
-![Main screen mockup](![image](https://user-images.githubusercontent.com/40745961/115745784-9ce29580-a348-11eb-9d61-395907bdeb55.png))
+![Main screen mockup](https://user-images.githubusercontent.com/40745961/115745784-9ce29580-a348-11eb-9d61-395907bdeb55.png)
 
 ## The Team 🏆
 
