@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2US-P9-yu6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VpV-Gb-fa4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="33" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="GP-Aide Login" id="Q9F-I1-Dbq"/>
+                                    <navigationItem title="Settings" id="Q9F-I1-Dbq"/>
                                 </items>
                             </navigationBar>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5pL-6V-kTn" userLabel="Logo">
@@ -45,20 +45,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DU5-Gc-nLp">
-                                <rect key="frame" x="129" y="638" width="145" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Go to GPA Calculator"/>
-                                <connections>
-                                    <action selector="addCourse:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rmp-tV-gdm"/>
-                                    <action selector="goToButton:" destination="Mx2-Jg-igI" eventType="touchUpInside" id="zpk-QW-cV9"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="xF1-0O-Mig"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AL0-7R-17s"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="settings_icon" id="lqv-fv-KTi"/>
                     <navigationItem key="navigationItem" title="GP-Aide Login" id="Eem-Qf-r3h"/>
                     <connections>
                         <outlet property="userName" destination="NKY-ti-aSZ" id="LJu-vf-H7q"/>
@@ -67,9 +58,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wdd-EW-l57" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="Mx2-Jg-igI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="123.18840579710145" y="123.88392857142857"/>
+            <point key="canvasLocation" x="1870" y="921"/>
         </scene>
         <!--Calculator-->
         <scene sceneID="tne-QT-ifu">
@@ -158,6 +148,7 @@
                             <outletCollection property="gestureRecognizers" destination="1NZ-b3-wss" appends="YES" id="uKd-eP-NyI"/>
                         </connections>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="calc_icon" springLoaded="YES" id="p0h-17-PYX"/>
                     <navigationItem key="navigationItem" title="Calculator" id="jsP-2m-LxL"/>
                     <connections>
                         <outlet property="courseGrade" destination="4X4-14-7Mq" id="Lft-Mh-Em6"/>
@@ -169,13 +160,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="1NZ-b3-wss">
-                    <connections>
-                        <segue destination="V9d-C9-s34" kind="show" id="fHy-mD-eXG"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="1NZ-b3-wss"/>
             </objects>
-            <point key="canvasLocation" x="981.15942028985512" y="123.88392857142857"/>
+            <point key="canvasLocation" x="1870" y="124"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="UEH-75-F1c">
@@ -184,35 +171,65 @@
                     <view key="view" contentMode="scaleToFill" id="nBB-1C-EN1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" id="cRv-Ud-rCC">
+                                <rect key="frame" x="0.0" y="33" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="People in your Courses" id="Jb6-ZX-hgj"/>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vSw-5t-w4a">
+                                <rect key="frame" x="0.0" y="77" width="414" height="736"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="person" id="cFc-TA-Lvi">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cFc-TA-Lvi" id="uKf-Qh-24V">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="wrk-pX-yrV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="people_icon" id="IiK-li-RxY"/>
                     <navigationItem key="navigationItem" id="1Ef-r8-Wbr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V4Y-nB-sGf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1961" y="124"/>
+            <point key="canvasLocation" x="1869.5652173913045" y="-719.19642857142856"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="BNc-kj-d6B">
+        <!--Tab Bar Controller-->
+        <scene sceneID="6gG-uL-fro">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2US-P9-yu6" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="VpV-Gb-fa4" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BYc-bB-83U">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="g3t-wA-y0Q">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
                     <connections>
-                        <segue destination="d8V-Qk-SbW" kind="relationship" relationship="rootViewController" id="Kx5-P3-qoI"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="OwX-W8-zS1"/>
+                        <segue destination="V9d-C9-s34" kind="relationship" relationship="viewControllers" id="7SJ-rW-nD5"/>
+                        <segue destination="d8V-Qk-SbW" kind="relationship" relationship="viewControllers" id="ldf-Rg-7IG"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3E2-Yz-3Hu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3NP-iL-tIU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-786.95652173913049" y="123.88392857142857"/>
+            <point key="canvasLocation" x="513" y="124"/>
         </scene>
     </scenes>
     <resources>
+        <image name="calc_icon" width="36" height="36"/>
+        <image name="people_icon" width="40" height="28"/>
+        <image name="settings_icon" width="40" height="40"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
