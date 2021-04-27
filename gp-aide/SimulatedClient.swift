@@ -8,8 +8,7 @@
 import Foundation
 
 class SimulatedClient: GPAideClient {
-    // return list of classmates taking same class
-    func fetchClassmates(taking courseTitle: String) -> [Classmate] {
+    func fetchClassmates(taking courseTitle: String, complete: ([Classmate]) -> Void) {
         var foundClassmates: [Classmate] = []
         for classmate in TEST_CLASSMATES {
             for course in classmate.courses {
@@ -20,18 +19,18 @@ class SimulatedClient: GPAideClient {
             }
         }
         // return list of classmates found
-        return foundClassmates
+        complete(foundClassmates)
     }
     
-    func pullInfo(username: String, password: String) -> User {
-        return TEST_USER
+    func pullInfo(username: String, password: String, complete: (User) -> Void) {
+        complete(TEST_USER)
     }
     
-    func pushInfo(_ info: User) -> GPAideResponse {
-        return TEST_RESPONSE
+    func pushInfo(_ info: User, complete: (GPAideResponse) -> Void) {
+        complete(TEST_RESPONSE)
     }
     
-    func discardInfo(_ info: User) -> GPAideResponse {
-        return TEST_RESPONSE
+    func discardInfo(_ info: User, complete: (GPAideResponse) -> Void) {
+        complete(TEST_RESPONSE)
     }
 }
