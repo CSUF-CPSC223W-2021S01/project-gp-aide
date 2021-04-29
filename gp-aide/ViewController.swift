@@ -44,9 +44,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         readGPAFromDisk()
-//        pickerView.delegate = self
-//        pickerView.dataSource = self
-//        courseGrade.inputView = pickerView
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        courseGrade.inputView = pickerView
     }
     
     
