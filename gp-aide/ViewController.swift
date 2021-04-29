@@ -25,17 +25,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet var errorLabel: UILabel!
     @IBOutlet var successLabel: UILabel!
     @IBOutlet var gpaLabel: UILabel!
-    @IBOutlet var tableOfCourses: UITableView!
 
-    // ** People VC **
-    @IBOutlet var tableOfPeople: UITableView!
 
     var userGPA = GPA()
-    var courses: [Course] = [] {
-        didSet {
-            tableOfCourses.reloadData()
-        }
-    }
 
     var readGPA: Double = 0.0
     var readCredits: Double = 0.0
@@ -129,36 +121,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
 
-    // prepare Segue function template, might useful for later
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showPeople"{
-//            let des
-//            destination.product = courses[(tableOfCourses.indexPathForSelectedRow?.row)!]
-            
-        }
-    }
 
     // MARK: - Table View Functions for Calculator View Controller
-
-    func tableView(_ tableOfCourses: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped me!")
-        tableOfCourses.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "showPeople", sender: self)
-    }
-
-    func tableView(_ tableOfCourses: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableOfCourses.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        if courses.count > 0 {
-            let courseObj = courses[indexPath.row]
-            let courseTitle = courseObj.getCourseTitle()
-            cell.textLabel?.text = courseTitle
-        }
-        return cell
-    }
-
-    func tableView(_ tableOfCourses: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return courses.count
-    }
+//
+//    func tableView(_ tableOfCourses: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print("You tapped me!")
+//        tableOfCourses.deselectRow(at: indexPath, animated: true)
+//        performSegue(withIdentifier: "showPeople", sender: self)
+//    }
+//
+//    func tableView(_ tableOfCourses: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableOfCourses.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+//        if courses.count > 0 {
+//            let courseObj = courses[indexPath.row]
+//            let courseTitle = courseObj.getCourseTitle()
+//            cell.textLabel?.text = courseTitle
+//        }
+//        return cell
+//    }
+//
+//    func tableView(_ tableOfCourses: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return courses.count
+//    }
 }
 
 
