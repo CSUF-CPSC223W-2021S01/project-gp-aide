@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController {
     // ** Login VC **
     @IBOutlet var userName: UITextField!
     @IBOutlet var userPassword: UITextField!
@@ -28,6 +28,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
 
     var userGPA = GPA()
+    var courses: [Course] = []
 
     var readGPA: Double = 0.0
     var readCredits: Double = 0.0
@@ -123,7 +124,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
 
     // MARK: - Table View Functions for Calculator View Controller
-//
+
 //    func tableView(_ tableOfCourses: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        print("You tapped me!")
 //        tableOfCourses.deselectRow(at: indexPath, animated: true)
