@@ -18,6 +18,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet var courseName: UITextField!
     @IBOutlet var courseGrade: UITextField!
     @IBOutlet var courseUnits: UITextField!
+    let gradeChoices = ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "F"]
+    var pickerView = UIPickerView()
 
     // User Feedback Labels
     @IBOutlet var errorLabel: UILabel!
@@ -42,9 +44,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         readGPAFromDisk()
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        courseGrade.inputView = pickerView
     }
-
+    
+    
     // MARK: - Add a course to userGPA object
+    
 
     @IBAction func addCourse(_ sender: Any) {
         let currCourseName = courseName.text
@@ -151,5 +158,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     func tableView(_ tableOfCourses: UITableView, numberOfRowsInSection section: Int) -> Int {
         return courses.count
+    }
+}
+
+
+//Extends the to support the picker
+extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return gradeChoices.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent compnent: Int) -> String?{
+        return gradeChoices[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        courseGrade.text = gradeChoices[row]
+        courseGrade.resignFirstResponder()
     }
 }
