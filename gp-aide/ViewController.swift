@@ -8,12 +8,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-    // ** Login VC **
+    
+    // ** Settings Screen **
     @IBOutlet var userName: UITextField!
     @IBOutlet var userPassword: UITextField!
     @IBOutlet var userSocialMedia: UITextField!
-
-    // ** Calculator VC **
+    @IBOutlet weak var toggle: UISwitch!
+    
+    // ** Calculator Screen **
     // Course name, grad, and unit text fields
     @IBOutlet var courseName: UITextField!
     @IBOutlet var courseGrade: UITextField!
@@ -25,7 +27,6 @@ class ViewController: UIViewController {
     @IBOutlet var errorLabel: UILabel!
     @IBOutlet var successLabel: UILabel!
     @IBOutlet var gpaLabel: UILabel!
-
 
     var userGPA = GPA()
     var courses: [Course] = []
@@ -39,7 +40,7 @@ class ViewController: UIViewController {
         readGPAFromDisk()
         pickerView.delegate = self
         pickerView.dataSource = self
-        courseGrade.inputView = pickerView
+     //   courseGrade.inputView = pickerView
     }
     
     
