@@ -189,7 +189,7 @@
         <!--People Sreen-->
         <scene sceneID="UEH-75-F1c">
             <objects>
-                <viewController id="V9d-C9-s34" userLabel="People Sreen" sceneMemberID="viewController">
+                <viewController id="V9d-C9-s34" userLabel="People Sreen" customClass="ViewController" customModule="gp_aide" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nBB-1C-EN1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

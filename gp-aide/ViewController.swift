@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITabBarControllerDelegate {
     // ** Settings Screen **
 
     @IBOutlet var userName: UITextField!
@@ -41,9 +41,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
+        tabBarController?.delegate = self
         readGPAFromDisk()
         readUserFromDisk()
+        // isUserLoggedIn()
         pickerView.delegate = self
         pickerView.dataSource = self
 
@@ -112,7 +113,7 @@ class ViewController: UIViewController {
         }
         print("GPA saved to UserDefaults")
     }
-    
+
     // read data from Disk, read the term so that the calculate GPA works.
     func readGPAFromDisk() {
         if let savedGPA = UserDefaults.standard.object(forKey: "SavedGPA") as? Data {
@@ -126,7 +127,7 @@ class ViewController: UIViewController {
             }
         }
     }
-    
+
     // save User Login to Disk
     func saveUserToDisk(_ currObject: User) {
         let encoder = JSONEncoder()
@@ -138,7 +139,7 @@ class ViewController: UIViewController {
         }
         print("User saved to UserDefaults")
     }
-    
+
     // read data from Disk, read UserLogin info.
     func readUserFromDisk() {
         if let savedGPA = UserDefaults.standard.object(forKey: "SavedUser") as? Data {
@@ -153,8 +154,8 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    // MARK: - Private Uesr method
+
+    // MARK: - Private User method, Settings Login method, UserIsLoggedIn at view load
 
     @IBAction func isPrivateUser(_ sender: Any) {
         // Hide(disable tapping) for people screen
@@ -179,6 +180,48 @@ class ViewController: UIViewController {
         }
         let classmateUser = User(username: userPassword.text!, contactUrl: userPassword.text!, courses: [], isPrivate: toggle.isOn, hashedPassword: hashPassword(username: userName.text!, password: userPassword.text!))
         saveUserToDisk(classmateUser)
+    }
+
+    // when app opens check if the user has set a password and such
+
+    func isUserLoggedIn() -> Bool {
+        if userPasswordRead == "" {
+            // Alert comes on
+            print("Alert comes on! on isUserLogin function")
+            let alert = UIAlertController(title: "Logged Out", message: "You are not logged in, please log in to view the People Screen", preferredStyle: .alert)
+            present(alert, animated: true)
+            let okAction = UIAlertAction(title: "Ok", style: .default)
+            alert.addAction(okAction)
+
+            // disables the 2nd tab bar item
+            let tabBarControllerItems = tabBarController?.tabBar.items
+            if let tabArray = tabBarControllerItems {
+                let tabBarItem2 = tabArray[1]
+                tabBarItem2.isEnabled = false
+            }
+            return false
+        } else {
+            let tabBarControllerItems = tabBarController?.tabBar.items
+            if let tabArray = tabBarControllerItems {
+                let tabBarItem2 = tabArray[1]
+                tabBarItem2.isEnabled = true
+            }
+            return true
+        }
+    }
+    // tab bar function to detect what item the user is at
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let tabBarIndex = tabBarController.selectedIndex
+        readUserFromDisk()
+        if tabBarIndex == 1 {
+            print("at second tab")
+            let value = isUserLoggedIn()
+            if value == false {
+                tabBarController.selectedIndex = 2
+            }
+        } else if tabBarIndex == 2 {
+            let _ = isUserLoggedIn()
+        }
     }
 
     // MARK: - Table View Functions for Calculator View Controller
