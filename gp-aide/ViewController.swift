@@ -146,10 +146,10 @@ class ViewController: UIViewController {
             if let loadedUser = try? decoded.decode(User.self, from: savedGPA) {
                 print(" LoadedUser username: \(loadedUser.username)")
                 print(" LoadedUser password:  \(loadedUser.hashedPassword)")
-                print(" LoadedUser public:  \(loadedUser.isPublic)")
+                print(" LoadedUser public:  \(loadedUser.isPrivate)")
                 usernameRead = loadedUser.username
                 userPasswordRead = loadedUser.hashedPassword
-                userVisiblityRead = loadedUser.isPublic
+                userVisiblityRead = loadedUser.isPrivate
             }
         }
     }
@@ -159,10 +159,11 @@ class ViewController: UIViewController {
     @IBAction func isPrivateUser(_ sender: Any) {
         // Hide(disable tapping) for people screen
         let tabBarControllerItems = tabBarController?.tabBar.items
-
-        if let tabArray = tabBarControllerItems {
-            let tabBarItem2 = tabArray[1]
-            tabBarItem2.isEnabled = false
+        if toggle.isOn == true {
+            if let tabArray = tabBarControllerItems {
+                let tabBarItem2 = tabArray[1]
+                tabBarItem2.isEnabled = false
+            }
         }
     }
 
@@ -176,7 +177,7 @@ class ViewController: UIViewController {
             alert.addAction(okAction)
             return
         }
-        let classmateUser = User(username: userPassword.text!, contactUrl: userPassword.text!, courses: [], isPublic: toggle.isOn, hashedPassword: hashPassword(username: userName.text!, password: userPassword.text!))
+        let classmateUser = User(username: userPassword.text!, contactUrl: userPassword.text!, courses: [], isPrivate: toggle.isOn, hashedPassword: hashPassword(username: userName.text!, password: userPassword.text!))
         saveUserToDisk(classmateUser)
     }
 

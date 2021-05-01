@@ -52,7 +52,7 @@ class CodableTests: XCTestCase {
     }
     func testSaveUserToDiskandReasdFromDisk1(){
         let vc = ViewController()
-        let currUser = User(username: "jeff", contactUrl: "https://instagram.com/jeffdude", courses: [], isPublic: true, hashedPassword: hashPassword(username: "jeff", password: "password"))
+        let currUser = User(username: "jeff", contactUrl: "https://instagram.com/jeffdude", courses: [], isPrivate: true, hashedPassword: hashPassword(username: "jeff", password: "password"))
         vc.saveUserToDisk(currUser)
         vc.readUserFromDisk()
         XCTAssertEqual(currUser.username, vc.usernameRead)
@@ -60,7 +60,7 @@ class CodableTests: XCTestCase {
     
     func testSaveUserToDiskandReasdFromDisk2(){
         let vc = ViewController()
-        let currUser = User(username: "jeff", contactUrl: "https://instagram.com/jeffdude", courses: [], isPublic: true, hashedPassword: hashPassword(username: "jeff", password: "password"))
+        let currUser = User(username: "jeff", contactUrl: "https://instagram.com/jeffdude", courses: [], isPrivate: true, hashedPassword: hashPassword(username: "jeff", password: "password"))
         vc.saveUserToDisk(currUser)
         vc.readUserFromDisk()
         XCTAssertEqual(currUser.hashedPassword, vc.userPasswordRead)
@@ -68,10 +68,10 @@ class CodableTests: XCTestCase {
     
     func testSaveUserToDiskandReasdFromDisk3(){
         let vc = ViewController()
-        let currUser = User(username: "jeff", contactUrl: "https://instagram.com/jeffdude", courses: [], isPublic: true, hashedPassword: hashPassword(username: "jeff", password: "password"))
+        let currUser = User(username: "jeff", contactUrl: "https://instagram.com/jeffdude", courses: [], isPrivate: true, hashedPassword: hashPassword(username: "jeff", password: "password"))
         vc.saveUserToDisk(currUser)
         vc.readUserFromDisk()
-        XCTAssertEqual(currUser.isPublic, vc.userVisiblityRead)
+        XCTAssertEqual(currUser.isPrivate, vc.userVisiblityRead)
     }
 
 }

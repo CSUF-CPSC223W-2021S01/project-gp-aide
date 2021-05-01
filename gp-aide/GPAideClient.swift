@@ -25,7 +25,7 @@ struct User: Equatable, Codable {
     var username: String
     var contactUrl: String
     var courses: [Course]
-    var isPublic: Bool
+    var isPrivate: Bool
     var hashedPassword: String
 }
 
