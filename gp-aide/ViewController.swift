@@ -8,13 +8,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
     // ** Settings Screen **
     @IBOutlet var userName: UITextField!
     @IBOutlet var userPassword: UITextField!
     @IBOutlet var userSocialMedia: UITextField!
-    @IBOutlet weak var toggle: UISwitch!
-    
+    @IBOutlet var toggle: UISwitch!
+
     // ** Calculator Screen **
     // Course name, grad, and unit text fields
     @IBOutlet var courseName: UITextField!
@@ -37,15 +36,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+
         readGPAFromDisk()
         pickerView.delegate = self
         pickerView.dataSource = self
-     //   courseGrade.inputView = pickerView
+
+        //   courseGrade.inputView = pickerView
     }
-    
-    
+
     // MARK: - Add a course to userGPA object
-    
 
     @IBAction func addCourse(_ sender: Any) {
         let currCourseName = courseName.text
@@ -123,6 +122,17 @@ class ViewController: UIViewController {
         }
     }
 
+    // MARK: - Private Uesr method
+
+    @IBAction func isPrivateUser(_ sender: Any) {
+        // Hide(disable tapping) for people screen
+        let tabBarControllerItems = tabBarController?.tabBar.items
+
+        if let tabArray = tabBarControllerItems {
+            let tabBarItem2 = tabArray[1]
+            tabBarItem2.isEnabled = false
+        }
+    }
 
     // MARK: - Table View Functions for Calculator View Controller
 
@@ -147,22 +157,21 @@ class ViewController: UIViewController {
 //    }
 }
 
-
-//Extends the to support the picker
+// Extends the to support the picker
 extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return gradeChoices.count
     }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent compnent: Int) -> String?{
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent compnent: Int) -> String? {
         return gradeChoices[row]
     }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         courseGrade.text = gradeChoices[row]
         courseGrade.resignFirstResponder()
     }
