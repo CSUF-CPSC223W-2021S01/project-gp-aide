@@ -17,7 +17,7 @@ struct Classmate: Equatable {
     var courses: [Course]
 }
 
-struct User: Equatable {
+struct User: Equatable, Codable {
     static func == (lhs: User, rhs: User) -> Bool {
         return lhs.username == rhs.username
     }
@@ -41,10 +41,7 @@ protocol GPAideClient: class {
     func discardInfo(_ info: User, complete: (GPAideResponse) -> Void)
 }
 
-func hashPassword(
-    username: String,
-    password: String
-) -> String {
+func hashPassword(username: String, password: String) -> String {
     // TODO(@EthanThatOneKid): Create simple password hashing function.
     return "\(username).\(password)"
 }
