@@ -169,7 +169,6 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
     }
 
     @IBAction func didUserSubmitLogIn(_ sender: Any) {
-        // userName userPassword userSocialMedia  toggle
         guard userName.text != "", userPassword.text != "", userSocialMedia.text != "" else {
             print("Alert comes on!")
             let alert = UIAlertController(title: "Missing Input", message: "You need text in every input", preferredStyle: .alert)
@@ -180,10 +179,11 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
         }
         let classmateUser = User(username: userPassword.text!, contactUrl: userPassword.text!, courses: [], isPrivate: toggle.isOn, hashedPassword: hashPassword(username: userName.text!, password: userPassword.text!))
         saveUserToDisk(classmateUser)
+        readUserFromDisk()
+        _ = isUserLoggedIn()
     }
 
     // when app opens check if the user has set a password and such
-
     func isUserLoggedIn() -> Bool {
         if userPasswordRead == "" {
             // Alert comes on
@@ -209,19 +209,20 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
             return true
         }
     }
+
     // tab bar function to detect what item the user is at
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let tabBarIndex = tabBarController.selectedIndex
-        readUserFromDisk()
+        
+        // check if on people screen, check if user is logged, if not then make them go to settings screen
         if tabBarIndex == 1 {
             print("at second tab")
             let value = isUserLoggedIn()
             if value == false {
                 tabBarController.selectedIndex = 2
             }
-        } else if tabBarIndex == 2 {
-            let _ = isUserLoggedIn()
         }
+
     }
 
     // MARK: - Table View Functions for Calculator View Controller
