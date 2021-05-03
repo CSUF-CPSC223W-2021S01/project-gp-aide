@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--GP-Aide Login-->
+        <!--Settings-->
         <scene sceneID="PnG-uc-tax">
             <objects>
-                <viewController id="d8V-Qk-SbW" customClass="ViewController" customModule="gp_aide" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="d8V-Qk-SbW" userLabel="Settings" customClass="ViewController" customModule="gp_aide" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ICx-cF-pPg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,8 +39,30 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hzP-la-po3">
+                                <rect key="frame" x="295" y="607" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="isPrivateUser:" destination="d8V-Qk-SbW" eventType="valueChanged" id="fgb-Nx-ckC"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Private User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6z-Rd-BrG">
+                                <rect key="frame" x="62" y="609" width="116" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lnm-gz-G7c">
+                                <rect key="frame" x="180" y="677" width="42" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log In"/>
+                                <connections>
+                                    <action selector="didUserSubmitLogIn:" destination="d8V-Qk-SbW" eventType="touchUpInside" id="1Te-ME-5PK"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Social Media &amp; Handle" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t8g-bq-gRd" userLabel="PasswordField">
-                                <rect key="frame" x="62" y="528" width="291" height="39"/>
+                                <rect key="frame" x="62" y="522" width="291" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -52,6 +74,8 @@
                     <tabBarItem key="tabBarItem" title="" image="settings_icon" id="lqv-fv-KTi"/>
                     <navigationItem key="navigationItem" title="GP-Aide Login" id="Eem-Qf-r3h"/>
                     <connections>
+                        <outlet property="logInSubmitButton" destination="Lnm-gz-G7c" id="vBG-tX-aVP"/>
+                        <outlet property="toggle" destination="hzP-la-po3" id="zMQ-0n-wIi"/>
                         <outlet property="userName" destination="NKY-ti-aSZ" id="LJu-vf-H7q"/>
                         <outlet property="userPassword" destination="RoA-6b-yKa" id="GlP-Q2-c99"/>
                         <outlet property="userSocialMedia" destination="t8g-bq-gRd" id="AIR-jt-baw"/>
@@ -59,7 +83,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wdd-EW-l57" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1870" y="985"/>
+            <point key="canvasLocation" x="1869.5652173913045" y="984.375"/>
         </scene>
         <!--Calculator-->
         <scene sceneID="tne-QT-ifu">
@@ -162,10 +186,10 @@
             </objects>
             <point key="canvasLocation" x="1869.5652173913045" y="123.88392857142857"/>
         </scene>
-        <!--View Controller-->
+        <!--People Sreen-->
         <scene sceneID="UEH-75-F1c">
             <objects>
-                <viewController id="V9d-C9-s34" sceneMemberID="viewController">
+                <viewController id="V9d-C9-s34" userLabel="People Sreen" customClass="ViewController" customModule="gp_aide" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nBB-1C-EN1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -201,7 +225,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V4Y-nB-sGf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1869.5652173913045" y="-719.19642857142856"/>
+            <point key="canvasLocation" x="1888" y="-717"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="6gG-uL-fro">

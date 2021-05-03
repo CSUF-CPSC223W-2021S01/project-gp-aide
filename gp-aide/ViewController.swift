@@ -7,13 +7,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    // ** Login VC **
+class ViewController: UIViewController, UITabBarControllerDelegate {
+    // ** Settings Screen **
+
     @IBOutlet var userName: UITextField!
     @IBOutlet var userPassword: UITextField!
     @IBOutlet var userSocialMedia: UITextField!
+    @IBOutlet var toggle: UISwitch!
+    @IBOutlet var logInSubmitButton: UIButton!
 
-    // ** Calculator VC **
+    // ** Calculator Screen **
     // Course name, grad, and unit text fields
     @IBOutlet var courseName: UITextField!
     @IBOutlet var courseGrade: UITextField!
@@ -26,25 +29,29 @@ class ViewController: UIViewController {
     @IBOutlet var successLabel: UILabel!
     @IBOutlet var gpaLabel: UILabel!
 
-
+    // General Variables
     var userGPA = GPA()
     var courses: [Course] = []
-
     var readGPA: Double = 0.0
     var readCredits: Double = 0.0
+    var usernameRead: String = ""
+    var userPasswordRead: String = ""
+    var userVisiblityRead: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        tabBarController?.delegate = self
         readGPAFromDisk()
+        readUserFromDisk()
+        // isUserLoggedIn()
         pickerView.delegate = self
         pickerView.dataSource = self
-        courseGrade.inputView = pickerView
+
+        //   courseGrade.inputView = pickerView
     }
-    
-    
+
     // MARK: - Add a course to userGPA object
-    
 
     @IBAction func addCourse(_ sender: Any) {
         let currCourseName = courseName.text
@@ -96,10 +103,9 @@ class ViewController: UIViewController {
     // MARK: - Codable Methods
 
     // save data to Disk, store GPA instance
-    func saveGPAToDisk(_ currGPA: GPA) {
+    func saveGPAToDisk(_ currObject: GPA) {
         let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(currGPA) {
-            // makes Data JSON
+        if let encoded = try? encoder.encode(currObject) {
             if let json = String(data: encoded, encoding: .utf8) {
                 print(json)
             }
@@ -122,6 +128,102 @@ class ViewController: UIViewController {
         }
     }
 
+    // save User Login to Disk
+    func saveUserToDisk(_ currObject: User) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(currObject) {
+            if let json = String(data: encoded, encoding: .utf8) {
+                print(json)
+            }
+            UserDefaults.standard.set(encoded, forKey: "SavedUser")
+        }
+        print("User saved to UserDefaults")
+    }
+
+    // read data from Disk, read UserLogin info.
+    func readUserFromDisk() {
+        if let savedGPA = UserDefaults.standard.object(forKey: "SavedUser") as? Data {
+            let decoded = JSONDecoder()
+            if let loadedUser = try? decoded.decode(User.self, from: savedGPA) {
+                print(" LoadedUser username: \(loadedUser.username)")
+                print(" LoadedUser password:  \(loadedUser.hashedPassword)")
+                print(" LoadedUser public:  \(loadedUser.isPrivate)")
+                usernameRead = loadedUser.username
+                userPasswordRead = loadedUser.hashedPassword
+                userVisiblityRead = loadedUser.isPrivate
+            }
+        }
+    }
+
+    // MARK: - Private User method, Settings Login method, UserIsLoggedIn at view load
+
+    @IBAction func isPrivateUser(_ sender: Any) {
+        // Hide(disable tapping) for people screen
+        let tabBarControllerItems = tabBarController?.tabBar.items
+        if toggle.isOn == true {
+            if let tabArray = tabBarControllerItems {
+                let tabBarItem2 = tabArray[1]
+                tabBarItem2.isEnabled = false
+            }
+        }
+    }
+
+    @IBAction func didUserSubmitLogIn(_ sender: Any) {
+        guard userName.text != "", userPassword.text != "", userSocialMedia.text != "" else {
+            print("Alert comes on!")
+            let alert = UIAlertController(title: "Missing Input", message: "You need text in every input", preferredStyle: .alert)
+            present(alert, animated: true)
+            let okAction = UIAlertAction(title: "Ok", style: .default)
+            alert.addAction(okAction)
+            return
+        }
+        let classmateUser = User(username: userPassword.text!, contactUrl: userPassword.text!, courses: [], isPrivate: toggle.isOn, hashedPassword: hashPassword(username: userName.text!, password: userPassword.text!))
+        saveUserToDisk(classmateUser)
+        readUserFromDisk()
+        _ = isUserLoggedIn()
+    }
+
+    // when app opens check if the user has set a password and such
+    func isUserLoggedIn() -> Bool {
+        if userPasswordRead == "" {
+            // Alert comes on
+            print("Alert comes on! on isUserLogin function")
+            let alert = UIAlertController(title: "Logged Out", message: "You are not logged in, please log in to view the People Screen", preferredStyle: .alert)
+            present(alert, animated: true)
+            let okAction = UIAlertAction(title: "Ok", style: .default)
+            alert.addAction(okAction)
+
+            // disables the 2nd tab bar item
+            let tabBarControllerItems = tabBarController?.tabBar.items
+            if let tabArray = tabBarControllerItems {
+                let tabBarItem2 = tabArray[1]
+                tabBarItem2.isEnabled = false
+            }
+            return false
+        } else {
+            let tabBarControllerItems = tabBarController?.tabBar.items
+            if let tabArray = tabBarControllerItems {
+                let tabBarItem2 = tabArray[1]
+                tabBarItem2.isEnabled = true
+            }
+            return true
+        }
+    }
+
+    // tab bar function to detect what item the user is at
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let tabBarIndex = tabBarController.selectedIndex
+        
+        // check if on people screen, check if user is logged, if not then make them go to settings screen
+        if tabBarIndex == 1 {
+            print("at second tab")
+            let value = isUserLoggedIn()
+            if value == false {
+                tabBarController.selectedIndex = 2
+            }
+        }
+
+    }
 
     // MARK: - Table View Functions for Calculator View Controller
 
@@ -146,22 +248,21 @@ class ViewController: UIViewController {
 //    }
 }
 
-
-//Extends the to support the picker
+// Extends the to support the picker
 extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return gradeChoices.count
     }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent compnent: Int) -> String?{
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent compnent: Int) -> String? {
         return gradeChoices[row]
     }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         courseGrade.text = gradeChoices[row]
         courseGrade.resignFirstResponder()
     }
