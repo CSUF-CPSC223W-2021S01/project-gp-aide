@@ -21,6 +21,9 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
     @IBOutlet var courseName: UITextField!
     @IBOutlet var courseGrade: UITextField!
     @IBOutlet var courseUnits: UITextField!
+    @IBOutlet weak var calcGpaButton: UIButton!
+    @IBOutlet weak var addCourseButton: UIButton!
+    
     let gradeChoices = ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "F"]
     var pickerView = UIPickerView()
 
@@ -47,7 +50,10 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
         // isUserLoggedIn()
         pickerView.delegate = self
         pickerView.dataSource = self
-
+        calcGpaButton.layer.cornerRadius = 20.0
+        addCourseButton.layer.cornerRadius = 20.0
+        
+        
         //   courseGrade.inputView = pickerView
     }
 
