@@ -7,23 +7,23 @@
 
 import Foundation
 
-let fakeDataUrl = "https://fakerapi.it/api/v1/persons?_quantity=10"
+let fakeDataUrl = URL(string: "https://fakerapi.it/api/v1/persons?_quantity=10")
 
 class RandomizedClient: GPAideClient {
     func fetchClassmates(taking courseTitle: String, complete: ([Classmate]) -> Void) {
         var foundClassmates: [Classmate] = []
-        let session = URLSession(configuration: URLSessionConfiguration.default)
-        let task = session.dataTask(with: fakeDataUrl, completionHandler: {(data, response, error) -> Void in
+        let task = URLSession.shared.dataTask(with: fakeDataUrl!) { (data, response, error) in
             if let data = data {
-                let json = try? JSONSerialization.jsonObject(with: data, options: [])
-                if let response = response as? HTTPURLResponse , 200...299 ~= response.statusCode {
-                        taskCallback(true, json as AnyObject?)
-                    } else {
-                        taskCallback(false, json as AnyObject?)
-                    }
+                let decoder = JSONDecoder()
+                let people = try? decoder.decode([[String: String]].self, from: data)
+                let course = Course(courseTitle, classGrade: "A", classCredits: 3.0)
+                for person in people! {
+                    let classmate = Classmate(username: person["email"]!, contactUrl: person["website"]!, courses: [course])
+                    foundClassmates.append(classmate)
+                }
             }
             complete(foundClassmates)
-        })
+        }
         task.resume()
     }
     
