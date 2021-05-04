@@ -50,5 +50,28 @@ class CodableTests: XCTestCase {
         vc.readGPAFromDisk()
         XCTAssertEqual(currGPA.currCredits, vc.readCredits)
     }
+    func testSaveUserToDiskandReasdFromDisk1(){
+        let vc = ViewController()
+        let currUser = User(username: "jeff", contactUrl: "https://instagram.com/jeffdude", courses: [], isPrivate: true, hashedPassword: hashPassword(username: "jeff", password: "password"))
+        vc.saveUserToDisk(currUser)
+        vc.readUserFromDisk()
+        XCTAssertEqual(currUser.username, vc.usernameRead)
+    }
+    
+    func testSaveUserToDiskandReasdFromDisk2(){
+        let vc = ViewController()
+        let currUser = User(username: "jeff", contactUrl: "https://instagram.com/jeffdude", courses: [], isPrivate: true, hashedPassword: hashPassword(username: "jeff", password: "password"))
+        vc.saveUserToDisk(currUser)
+        vc.readUserFromDisk()
+        XCTAssertEqual(currUser.hashedPassword, vc.userPasswordRead)
+    }
+    
+    func testSaveUserToDiskandReasdFromDisk3(){
+        let vc = ViewController()
+        let currUser = User(username: "jeff", contactUrl: "https://instagram.com/jeffdude", courses: [], isPrivate: true, hashedPassword: hashPassword(username: "jeff", password: "password"))
+        vc.saveUserToDisk(currUser)
+        vc.readUserFromDisk()
+        XCTAssertEqual(currUser.isPrivate, vc.userVisiblityRead)
+    }
 
 }

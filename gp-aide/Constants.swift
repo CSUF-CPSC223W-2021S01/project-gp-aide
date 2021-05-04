@@ -71,7 +71,7 @@ let TEST_USER = User(
   username: "EthanThatOneKid",
   contactUrl: "https://github.com/EthanThatOneKid",
   courses: [],
-  isPublic: true,
+  isPrivate: true,
   hashedPassword: "THIS_DOESNT_MATTER_YET"
 )
 
