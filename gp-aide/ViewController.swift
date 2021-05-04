@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         readGPAFromDisk()
         pickerView.delegate = self
         pickerView.dataSource = self
-        courseGrade.inputView = pickerView
+    //    courseGrade.inputView = pickerView
     }
     
     

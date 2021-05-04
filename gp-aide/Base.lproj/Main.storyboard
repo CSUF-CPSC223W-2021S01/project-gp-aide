@@ -23,7 +23,7 @@
                                     <navigationItem title="Settings" id="Q9F-I1-Dbq"/>
                                 </items>
                             </navigationBar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5pL-6V-kTn" userLabel="Logo">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="128" translatesAutoresizingMaskIntoConstraints="NO" id="5pL-6V-kTn" userLabel="Logo">
                                 <rect key="frame" x="81" y="155" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -225,6 +225,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="128" width="128" height="128"/>
         <image name="calc_icon" width="36" height="36"/>
         <image name="people_icon" width="40" height="28"/>
         <image name="settings_icon" width="40" height="40"/>
