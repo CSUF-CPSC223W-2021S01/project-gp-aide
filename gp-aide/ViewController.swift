@@ -50,9 +50,15 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
         // isUserLoggedIn()
         pickerView.delegate = self
         pickerView.dataSource = self
-        calcGpaButton.layer.cornerRadius = 20.0
-        addCourseButton.layer.cornerRadius = 20.0
         
+        let tabBarControllerItems = tabBarController?.tabBar.items
+        if let tabArray = tabBarControllerItems {
+            let tabBarItem2 = tabArray[0]
+            if tabBarItem2.isEnabled {
+                calcGpaButton.layer.cornerRadius = 20.0
+                addCourseButton.layer.cornerRadius = 20.0
+            }
+        }
         
         //   courseGrade.inputView = pickerView
     }
