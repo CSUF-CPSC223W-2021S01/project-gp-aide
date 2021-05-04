@@ -22,6 +22,9 @@
 //  case a_plus = "A+"
 //}
 
+// Miscellaneous Constants
+let CLASSMATE_AMOUNT = 12
+
 // Grade points for 4.0 scale
 let GRADES = [
   "A+": 4.0,

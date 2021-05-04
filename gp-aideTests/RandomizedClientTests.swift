@@ -21,7 +21,7 @@ class RandomizedClientTests: XCTestCase {
     
     func testFindTenClassmates() {
         self.client.fetchClassmates(taking: "CPSC 223W") { classmates in
-            XCTAssertEqual(classmates.count, 10)
+            XCTAssertEqual(classmates.count, CLASSMATE_AMOUNT)
         }
     }
     
