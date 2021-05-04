@@ -7,16 +7,18 @@
 
 import Foundation
 
-// TODO(@Herrera741): Add the `withQueries` URL extension here.
-// See: https://github.com/CSUF-CPSC223W-2021S01/project-gp-aide/issues/53
-// `extension URL { ... }`
-// Then we can change `let fakeDataUrl = ...` to
-// ```
-// let baseURL = URL(string: "https://fakerapi.it/api/v1/persons")
-// let fakeDataUrl = baseURL.withQueries(["_quantity": String(CLASSMATE_AMOUNT)])
-// ```
+extension URL {
+    func withQueries(_ queries: [String: String]) -> URL? {
+        var components = URLComponents(url: self, resolvingAgainstBaseURL: true)
+        components?.queryItems = queries.map {
+            URLQueryItem(name: $0.0, value: $0.1)
+        }
+        return components?.url
+    }
+}
 
-let fakeDataUrl = URL(string: "https://fakerapi.it/api/v1/persons?_quantity=\(CLASSMATE_AMOUNT)")
+let baseURL = URL(string: "https://fakerapi.it/api/v1/persons")
+let fakeDataUrl = baseURL!.withQueries(["_quantity": String(CLASSMATE_AMOUNT)])
 
 class RandomizedClient: GPAideClient {
     func fetchClassmates(taking courseTitle: String, complete: @escaping ([Classmate]) -> Void) {
