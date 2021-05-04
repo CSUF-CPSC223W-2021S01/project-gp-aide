@@ -16,6 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+<<<<<<< Updated upstream
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E2s-RS-3j8">
                                 <rect key="frame" x="0.0" y="33" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -27,6 +28,8 @@
                                 <rect key="frame" x="81" y="155" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+=======
+>>>>>>> Stashed changes
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NKY-ti-aSZ" userLabel="NameField">
                                 <rect key="frame" x="62" y="375" width="291" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -53,25 +56,44 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lnm-gz-G7c">
-                                <rect key="frame" x="180" y="677" width="42" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Log In"/>
-                                <connections>
-                                    <action selector="didUserSubmitLogIn:" destination="d8V-Qk-SbW" eventType="touchUpInside" id="1Te-ME-5PK"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Social Media &amp; Handle" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t8g-bq-gRd" userLabel="PasswordField">
                                 <rect key="frame" x="62" y="522" width="291" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Let's sign you in!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vun-Uy-b5X">
+                                <rect key="frame" x="62" y="176" width="339" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to GPA-ade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x82-Fy-FIt">
+                                <rect key="frame" x="62" y="242" width="235" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lnm-gz-G7c">
+                                <rect key="frame" x="126" y="678" width="162" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.26386904719999998" green="0.47529906030000002" blue="0.97245258089999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didUserSubmitLogIn:" destination="d8V-Qk-SbW" eventType="touchUpInside" id="1Te-ME-5PK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AL0-7R-17s"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="settings_icon" id="lqv-fv-KTi"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings_icon" id="lqv-fv-KTi">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="GP-Aide Login" id="Eem-Qf-r3h"/>
                     <connections>
                         <outlet property="logInSubmitButton" destination="Lnm-gz-G7c" id="vBG-tX-aVP"/>
@@ -93,13 +115,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rQp-Y2-vbe">
-                                <rect key="frame" x="0.0" y="33" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="GPA Calculator" id="jbY-kt-FyN"/>
-                                </items>
-                            </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Course Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oht-i6-0Kb">
                                 <rect key="frame" x="44" y="135" width="336" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -124,17 +139,23 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2YX-H4-aXv">
-                                <rect key="frame" x="167" y="240" width="81" height="30"/>
+                                <rect key="frame" x="223" y="272" width="157" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Course"/>
+                                <color key="backgroundColor" red="0.26386904719999998" green="0.47529906030000002" blue="0.97245258089999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Add Course">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="addCourse:" destination="BYZ-38-t0r" eventType="touchUpInside" id="px4-4N-4y6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfD-eS-uuM">
-                                <rect key="frame" x="158" y="278" width="98" height="30"/>
+                                <rect key="frame" x="44" y="272" width="157" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Calculate GPA"/>
+                                <color key="backgroundColor" red="0.26386904719999998" green="0.47529906030000002" blue="0.97245258089999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Calculate GPA">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="calculateGPA:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LnF-jy-B6f"/>
                                 </connections>
@@ -147,18 +168,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GPA:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxs-lp-Ay0">
-                                <rect key="frame" x="132" y="433" width="150" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Units:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1O-yH-gdh">
+                                <rect key="frame" x="264" y="717" width="130" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Success" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eH8-3T-IAd">
-                                <rect key="frame" x="27" y="332" width="360" height="78"/>
+                                <rect key="frame" x="27" y="409" width="360" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GPA:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxs-lp-Ay0">
+                                <rect key="frame" x="44" y="717" width="130" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -170,9 +198,13 @@
                             <outletCollection property="gestureRecognizers" destination="1NZ-b3-wss" appends="YES" id="uKd-eP-NyI"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="calc_icon" springLoaded="YES" id="p0h-17-PYX"/>
+                    <tabBarItem key="tabBarItem" title="Calculator" image="calc_icon" springLoaded="YES" id="p0h-17-PYX">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="Calculator" id="jsP-2m-LxL"/>
                     <connections>
+                        <outlet property="addCourseButton" destination="2YX-H4-aXv" id="7Hw-Yh-6T3"/>
+                        <outlet property="calcGpaButton" destination="DfD-eS-uuM" id="SDQ-IN-SN7"/>
                         <outlet property="courseGrade" destination="4X4-14-7Mq" id="Lft-Mh-Em6"/>
                         <outlet property="courseName" destination="Oht-i6-0Kb" id="Wb1-Qk-SY7"/>
                         <outlet property="courseUnits" destination="UUH-hz-ESW" id="j7Q-eJ-957"/>
@@ -197,9 +229,6 @@
                             <navigationBar contentMode="scaleToFill" id="cRv-Ud-rCC">
                                 <rect key="frame" x="0.0" y="33" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="People in your Courses" id="Jb6-ZX-hgj"/>
-                                </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vSw-5t-w4a">
                                 <rect key="frame" x="0.0" y="77" width="414" height="736"/>
@@ -220,7 +249,9 @@
                         <viewLayoutGuide key="safeArea" id="wrk-pX-yrV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="people_icon" id="IiK-li-RxY"/>
+                    <tabBarItem key="tabBarItem" title="People" image="people_icon" id="IiK-li-RxY">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="1Ef-r8-Wbr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V4Y-nB-sGf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -253,6 +284,9 @@
         <image name="calc_icon" width="36" height="36"/>
         <image name="people_icon" width="40" height="28"/>
         <image name="settings_icon" width="40" height="40"/>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
