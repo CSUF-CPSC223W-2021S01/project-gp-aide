@@ -213,7 +213,7 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
     // tab bar function to detect what item the user is at
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let tabBarIndex = tabBarController.selectedIndex
-        
+
         // check if on people screen, check if user is logged, if not then make them go to settings screen
         if tabBarIndex == 1 {
             print("at second tab")
@@ -222,12 +222,12 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
                 tabBarController.selectedIndex = 2
             }
         }
-
     }
-    
+
     // MARK: - People Screen Keyboard Dismiss
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
 
     // MARK: - Table View Functions for Calculator View Controller
@@ -252,6 +252,8 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
 //        return courses.count
 //    }
 }
+
+// MARK: - UIPickerView Extension
 
 // Extends the to support the picker
 extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
