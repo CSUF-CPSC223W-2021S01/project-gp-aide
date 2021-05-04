@@ -224,6 +224,11 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
         }
 
     }
+    
+    // MARK: - People Screen Keyboard Dismiss
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
     // MARK: - Table View Functions for Calculator View Controller
 
