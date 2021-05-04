@@ -15,6 +15,8 @@
 		33E92448262D3C7000C77F7B /* SimulatedClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E92447262D3C7000C77F7B /* SimulatedClient.swift */; };
 		33E9244D262D3C7700C77F7B /* SimulatedClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E9244C262D3C7700C77F7B /* SimulatedClientTests.swift */; };
 		7A11C90425F9639700FB2A37 /* GPA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11C90325F9639700FB2A37 /* GPA.swift */; };
+		7A326A9E26419C9E00001F8D /* RandomizedClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A326A9D26419C9E00001F8D /* RandomizedClient.swift */; };
+		7A326AA326419FBE00001F8D /* RandomizedClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A326AA226419FBE00001F8D /* RandomizedClientTests.swift */; };
 		7A5DC59A2603287900F9AC04 /* GPA_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5DC5992603287900F9AC04 /* GPA_Tests.swift */; };
 		81B506F525E5944000BB320B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 81B506F425E5944000BB320B /* .gitignore */; };
 		81E657F125E593A100F6F42B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E657F025E593A100F6F42B /* AppDelegate.swift */; };
@@ -52,6 +54,8 @@
 		33E92447262D3C7000C77F7B /* SimulatedClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulatedClient.swift; sourceTree = "<group>"; };
 		33E9244C262D3C7700C77F7B /* SimulatedClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulatedClientTests.swift; sourceTree = "<group>"; };
 		7A11C90325F9639700FB2A37 /* GPA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPA.swift; sourceTree = "<group>"; };
+		7A326A9D26419C9E00001F8D /* RandomizedClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomizedClient.swift; sourceTree = "<group>"; };
+		7A326AA226419FBE00001F8D /* RandomizedClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomizedClientTests.swift; sourceTree = "<group>"; };
 		7A5DC5992603287900F9AC04 /* GPA_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPA_Tests.swift; sourceTree = "<group>"; };
 		81B506F425E5944000BB320B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		81E657ED25E593A100F6F42B /* gp-aide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gp-aide.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +134,7 @@
 				81E657F925E593A200F6F42B /* Assets.xcassets */,
 				81E657FB25E593A200F6F42B /* LaunchScreen.storyboard */,
 				81E657FE25E593A200F6F42B /* Info.plist */,
+				7A326A9D26419C9E00001F8D /* RandomizedClient.swift */,
 			);
 			path = "gp-aide";
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 				81E6580925E593A200F6F42B /* Info.plist */,
 				7A5DC5992603287900F9AC04 /* GPA_Tests.swift */,
 				33E9244C262D3C7700C77F7B /* SimulatedClientTests.swift */,
+				7A326AA226419FBE00001F8D /* RandomizedClientTests.swift */,
 			);
 			path = "gp-aideTests";
 			sourceTree = "<group>";
@@ -291,6 +297,7 @@
 				81E657F525E593A100F6F42B /* ViewController.swift in Sources */,
 				334FBC2D25F833AD007295E6 /* Course.swift in Sources */,
 				81E657F125E593A100F6F42B /* AppDelegate.swift in Sources */,
+				7A326A9E26419C9E00001F8D /* RandomizedClient.swift in Sources */,
 				81E657F325E593A100F6F42B /* SceneDelegate.swift in Sources */,
 				33E9243E262D3C5400C77F7B /* Constants.swift in Sources */,
 				33E92448262D3C7000C77F7B /* SimulatedClient.swift in Sources */,
@@ -301,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A326AA326419FBE00001F8D /* RandomizedClientTests.swift in Sources */,
 				7A5DC59A2603287900F9AC04 /* GPA_Tests.swift in Sources */,
 				33D1002425F949E8009657C2 /* CourseTests.swift in Sources */,
 				33690E57261BCD3B00A7615D /* CodableTests.swift in Sources */,
