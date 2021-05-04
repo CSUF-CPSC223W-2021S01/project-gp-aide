@@ -16,7 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-<<<<<<< Updated upstream
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E2s-RS-3j8">
                                 <rect key="frame" x="0.0" y="33" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -25,32 +24,31 @@
                                 </items>
                             </navigationBar>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="128" translatesAutoresizingMaskIntoConstraints="NO" id="5pL-6V-kTn" userLabel="Logo">
-                                <rect key="frame" x="81" y="155" width="240" height="128"/>
+                                <rect key="frame" x="81" y="171" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-=======
->>>>>>> Stashed changes
+
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NKY-ti-aSZ" userLabel="NameField">
-                                <rect key="frame" x="62" y="375" width="291" height="39"/>
+                                <rect key="frame" x="62" y="325" width="291" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RoA-6b-yKa" userLabel="PasswordField">
-                                <rect key="frame" x="62" y="449" width="291" height="39"/>
+                                <rect key="frame" x="62" y="388" width="291" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hzP-la-po3">
-                                <rect key="frame" x="295" y="607" width="49" height="31"/>
+                                <rect key="frame" x="297" y="512" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="isPrivateUser:" destination="d8V-Qk-SbW" eventType="valueChanged" id="fgb-Nx-ckC"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Private User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6z-Rd-BrG">
-                                <rect key="frame" x="62" y="609" width="116" height="27"/>
+                                <rect key="frame" x="62" y="512" width="116" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
@@ -58,6 +56,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Social Media &amp; Handle" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t8g-bq-gRd" userLabel="PasswordField">
                                 <rect key="frame" x="62" y="522" width="291" height="39"/>
+
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -83,6 +82,7 @@
                                 <state key="normal" title="Log In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+
                                 <connections>
                                     <action selector="didUserSubmitLogIn:" destination="d8V-Qk-SbW" eventType="touchUpInside" id="1Te-ME-5PK"/>
                                 </connections>
@@ -90,6 +90,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AL0-7R-17s"/>
                         <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="settings_icon" id="lqv-fv-KTi">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>

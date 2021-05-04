@@ -35,10 +35,10 @@ struct GPAideResponse {
 }
 
 protocol GPAideClient: class {
-    func fetchClassmates(taking courseTitle: String, complete: ([Classmate]) -> Void)
-    func pullInfo(username: String, password: String, complete: (User) -> Void)
-    func pushInfo(_ info: User, complete: (GPAideResponse) -> Void)
-    func discardInfo(_ info: User, complete: (GPAideResponse) -> Void)
+    func fetchClassmates(taking courseTitle: String, complete: @escaping ([Classmate]) -> Void)
+    func pullInfo(username: String, password: String, complete: @escaping (User) -> Void)
+    func pushInfo(_ info: User, complete: @escaping (GPAideResponse) -> Void)
+    func discardInfo(_ info: User, complete: @escaping (GPAideResponse) -> Void)
 }
 
 func hashPassword(username: String, password: String) -> String {
