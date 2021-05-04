@@ -147,7 +147,7 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
             if let loadedUser = try? decoded.decode(User.self, from: savedGPA) {
                 print(" LoadedUser username: \(loadedUser.username)")
                 print(" LoadedUser password:  \(loadedUser.hashedPassword)")
-                print(" LoadedUser public:  \(loadedUser.isPrivate)")
+                print(" LoadedUser isPrivate:  \(loadedUser.isPrivate)")
                 usernameRead = loadedUser.username
                 userPasswordRead = loadedUser.hashedPassword
                 userVisiblityRead = loadedUser.isPrivate
