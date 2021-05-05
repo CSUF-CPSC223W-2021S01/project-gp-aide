@@ -214,15 +214,16 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let tabBarIndex = tabBarController.selectedIndex
         
-        // check if on people screen, check if user is logged, if not then make them go to settings screen
+        // if select people screen tab bar item and user not logged in and set to public option
+        // send to settings screen
         if tabBarIndex == 1 {
             print("at second tab")
             let value = isUserLoggedIn()
+            
             if value == false {
                 tabBarController.selectedIndex = 2
             }
         }
-
     }
 
     // MARK: - Table View Functions for Calculator View Controller
