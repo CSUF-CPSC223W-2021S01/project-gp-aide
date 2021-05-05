@@ -50,17 +50,16 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
         // isUserLoggedIn()
         pickerView.delegate = self
         pickerView.dataSource = self
+
+        //When changing tabs all elements on the screen will become nil, make sure to have a logic check for elements you want to access on a given screen
+        if calcGpaButton != nil && addCourseButton != nil {
+            calcGpaButton.layer.cornerRadius = 20.0
+            addCourseButton.layer.cornerRadius = 20.0
+        }
         
-//        let tabBarControllerItems = tabBarController?.tabBar.items
-//        if let tabArray = tabBarControllerItems {
-//            let tabBarItem2 = tabArray[0]
-//            if tabBarItem2.isEnabled {
-//                calcGpaButton.layer.cornerRadius = 20.0
-//                addCourseButton.layer.cornerRadius = 20.0
-//            }
-//        }
-//        
-        //   courseGrade.inputView = pickerView
+        if courseGrade != nil{
+            courseGrade.inputView = pickerView
+        }
     }
 
     // MARK: - Add a course to userGPA object
