@@ -96,6 +96,8 @@
         <!--Calculator-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="1NZ-b3-wss"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="gp_aide" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -124,28 +126,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2YX-H4-aXv">
-                                <rect key="frame" x="223" y="272" width="157" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.26386904719999998" green="0.47529906030000002" blue="0.97245258089999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Add Course">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="addCourse:" destination="BYZ-38-t0r" eventType="touchUpInside" id="px4-4N-4y6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfD-eS-uuM">
-                                <rect key="frame" x="44" y="272" width="157" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.26386904719999998" green="0.47529906030000002" blue="0.97245258089999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Calculate GPA">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="calculateGPA:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LnF-jy-B6f"/>
-                                </connections>
-                            </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&quot;Error one or more fields incorrect or empty&quot;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Msz-Ff-tqK">
                                 <rect key="frame" x="0.0" y="95" width="414" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -176,6 +156,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2YX-H4-aXv">
+                                <rect key="frame" x="121" y="276" width="157" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.26386904719999998" green="0.47529906030000002" blue="0.97245258089999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Add Course">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addCourse:" destination="BYZ-38-t0r" eventType="touchUpInside" id="px4-4N-4y6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -190,17 +181,15 @@
                     <navigationItem key="navigationItem" title="Calculator" id="jsP-2m-LxL"/>
                     <connections>
                         <outlet property="addCourseButton" destination="2YX-H4-aXv" id="7Hw-Yh-6T3"/>
-                        <outlet property="calcGpaButton" destination="DfD-eS-uuM" id="SDQ-IN-SN7"/>
                         <outlet property="courseGrade" destination="4X4-14-7Mq" id="Lft-Mh-Em6"/>
                         <outlet property="courseName" destination="Oht-i6-0Kb" id="Wb1-Qk-SY7"/>
                         <outlet property="courseUnits" destination="UUH-hz-ESW" id="j7Q-eJ-957"/>
                         <outlet property="errorLabel" destination="Msz-Ff-tqK" id="eCt-nY-Ve8"/>
                         <outlet property="gpaLabel" destination="Kxs-lp-Ay0" id="Hkg-5U-F3r"/>
                         <outlet property="successLabel" destination="eH8-3T-IAd" id="iIM-TA-teX"/>
+                        <outlet property="unitLabel" destination="I1O-yH-gdh" id="dJr-Nc-g4V"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="1NZ-b3-wss"/>
             </objects>
             <point key="canvasLocation" x="1869.5652173913045" y="123.88392857142857"/>
         </scene>
