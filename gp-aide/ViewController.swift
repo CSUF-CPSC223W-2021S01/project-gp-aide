@@ -9,7 +9,6 @@ import UIKit
 
 class ViewController: UIViewController, UITabBarControllerDelegate {
     // ** Settings Screen **
-
     @IBOutlet var userName: UITextField!
     @IBOutlet var userPassword: UITextField!
     @IBOutlet var userSocialMedia: UITextField!
@@ -75,6 +74,7 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
         // checks to see if all fields have been inputed correctly
         if currCourseName != nil, currCourseGrade != nil, currCourseUnits != nil {
             let currCourse = Course(currCourseName!, classGrade: currCourseGrade!, classCredits: currCourseUnits!)
+            
             userGPA.addTermCourse(currCourse)
             courses.append(currCourse)
             calculateGPA()
@@ -100,16 +100,20 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
     func calculateGPA() {
         errorLabel.isHidden = true
         successLabel.isHidden = true
-        userGPA.calculateCurrentGPA()
-        if userGPA.getCurrentGPA().isNaN {
+        
+        // userGPA calculates updated GPA as courses get added to term
+        let calculatedGPA = userGPA.getCurrentGPA()
+        
+        if calculatedGPA.isNaN {
             print("Alert comes on!")
             let alert = UIAlertController(title: "Missing Course", message: "You need to enter a course before calculating GPA", preferredStyle: .alert)
             present(alert, animated: true)
             let okAction = UIAlertAction(title: "Ok", style: .default)
             alert.addAction(okAction)
         } else {
-            userGPA.setCurrentGPA(userGPA.getCurrentGPA())
-            userGPA.currCredits = userGPA.currCredits
+//            userGPA.setCurrentGPA(userGPA.getCurrentGPA())
+            print("userGPA.currCredits = \(userGPA.currCredits)")
+//            userGPA.currCredits = userGPA.currCredits
             saveGPAToDisk(userGPA)
             gpaLabel.text = "GPA: \(String(userGPA.getCurrentGPA()))"
             unitLabel.text = "Units: \(String(userGPA.getCurrentCredits()))"

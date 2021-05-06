@@ -93,6 +93,18 @@ class GPA_Tests: XCTestCase {
         XCTAssertEqual(studentGPA.currGPA, 3.5)
     }
     
+    func testThreeCourseCredits() {
+        let studentGPA = GPA()
+        var studentCourse = Course("CS 101", classGrade: "A+", classCredits: 3)
+        studentGPA.addTermCourse(studentCourse)
+        studentCourse = Course("CS 223", classGrade: "B-", classCredits: 3)
+        studentGPA.addTermCourse(studentCourse)
+        studentCourse = Course("CS 431", classGrade: "C+", classCredits: 3)
+        studentGPA.addTermCourse(studentCourse)
+        studentGPA.calculateCurrentGPA()
+        XCTAssertEqual(studentGPA.currCredits, 9)
+    }
+    
     func testThreeCourseGPA() {
         let studentGPA = GPA()
         var studentCourse = Course("CS 323", classGrade: "B", classCredits: 3)

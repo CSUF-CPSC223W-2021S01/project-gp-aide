@@ -90,6 +90,8 @@ class GPA: Codable {
     
     func addTermCourse(_ course: Course) {
         term.append(course)
+        addCredits(course.credits)
+        calculateCurrentGPA()
     }
     
     func removeTermCourse(_ title: String) -> Bool {
@@ -119,7 +121,7 @@ class GPA: Codable {
 
         for course in term {
             let courseCredits = Double(course.getCourseCredit())
-            addCredits(courseCredits)
+//            addCredits(courseCredits)
             let courseGrade = course.getCourseGrade()
             let gradePoints = courseCredits * grades[courseGrade]!
             totalQualityPoints += gradePoints
