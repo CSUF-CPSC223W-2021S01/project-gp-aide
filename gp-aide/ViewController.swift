@@ -21,7 +21,6 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
     @IBOutlet var courseName: UITextField!
     @IBOutlet var courseGrade: UITextField!
     @IBOutlet var courseUnits: UITextField!
-    @IBOutlet weak var calcGpaButton: UIButton!
     @IBOutlet weak var addCourseButton: UIButton!
     
     let gradeChoices = ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "F"]
@@ -31,7 +30,9 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
     @IBOutlet var errorLabel: UILabel!
     @IBOutlet var successLabel: UILabel!
     @IBOutlet var gpaLabel: UILabel!
-
+    @IBOutlet var unitLabel: UILabel!
+    
+    
     // General Variables
     var userGPA = GPA()
     var courses: [Course] = []
@@ -52,13 +53,16 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
         pickerView.dataSource = self
       
         //When changing tabs all elements on the screen will become nil, make sure to have a logic check for elements you want to access on a given screen
-        if calcGpaButton != nil && addCourseButton != nil {
-            calcGpaButton.layer.cornerRadius = 20.0
+        if addCourseButton != nil {
             addCourseButton.layer.cornerRadius = 20.0
         }
         
         if courseGrade != nil{
             courseGrade.inputView = pickerView
+        }
+        
+        if logInSubmitButton != nil {
+            logInSubmitButton.layer.cornerRadius = 20.0
         }
     }
 
@@ -74,8 +78,8 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
             let currCourse = Course(currCourseName!, classGrade: currCourseGrade!, classCredits: currCourseUnits!)
             userGPA.addTermCourse(currCourse)
             courses.append(currCourse)
-            print("Courses arr size \(courses.count)")
-
+            calculateGPA()
+            
             // Hide Error Message if on and show success message
             errorLabel.isHidden = true
             successLabel.isHidden = false
@@ -94,7 +98,7 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
 
     // MARK: - calculate GPA Method
 
-    @IBAction func calculateGPA(_ sender: Any) {
+    func calculateGPA() {
         errorLabel.isHidden = true
         successLabel.isHidden = true
         userGPA.calculateCurrentGPA()
@@ -106,8 +110,10 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
             alert.addAction(okAction)
         } else {
             userGPA.setCurrentGPA(userGPA.getCurrentGPA())
+            userGPA.currCredits = userGPA.currCredits
             saveGPAToDisk(userGPA)
             gpaLabel.text = "GPA: \(String(userGPA.getCurrentGPA()))"
+            unitLabel.text = "Units: \(String(userGPA.getCurrentCredits()))"
         }
     }
 
