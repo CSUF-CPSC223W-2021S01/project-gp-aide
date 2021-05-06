@@ -21,6 +21,8 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
     @IBOutlet var courseName: UITextField!
     @IBOutlet var courseGrade: UITextField!
     @IBOutlet var courseUnits: UITextField!
+    @IBOutlet var addCourseButton: UIButton!
+
     let gradeChoices = ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "F"]
     var pickerView = UIPickerView()
 
@@ -28,6 +30,7 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
     @IBOutlet var errorLabel: UILabel!
     @IBOutlet var successLabel: UILabel!
     @IBOutlet var gpaLabel: UILabel!
+    @IBOutlet var unitLabel: UILabel!
 
     // General Variables
     var userGPA = GPA()
@@ -48,7 +51,18 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
         pickerView.delegate = self
         pickerView.dataSource = self
 
-        //   courseGrade.inputView = pickerView
+        // When changing tabs all elements on the screen will become nil, make sure to have a logic check for elements you want to access on a given screen
+        if addCourseButton != nil {
+            addCourseButton.layer.cornerRadius = 20.0
+        }
+
+        if courseGrade != nil {
+            courseGrade.inputView = pickerView
+        }
+
+        if logInSubmitButton != nil {
+            logInSubmitButton.layer.cornerRadius = 20.0
+        }
     }
 
     // MARK: - Add a course to userGPA object
@@ -63,7 +77,7 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
             let currCourse = Course(currCourseName!, classGrade: currCourseGrade!, classCredits: currCourseUnits!)
             userGPA.addTermCourse(currCourse)
             courses.append(currCourse)
-            print("Courses arr size \(courses.count)")
+            calculateGPA()
 
             // Hide Error Message if on and show success message
             errorLabel.isHidden = true
@@ -83,7 +97,7 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
 
     // MARK: - calculate GPA Method
 
-    @IBAction func calculateGPA(_ sender: Any) {
+    func calculateGPA() {
         errorLabel.isHidden = true
         successLabel.isHidden = true
         userGPA.calculateCurrentGPA()
@@ -95,8 +109,10 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
             alert.addAction(okAction)
         } else {
             userGPA.setCurrentGPA(userGPA.getCurrentGPA())
+            userGPA.currCredits = userGPA.currCredits
             saveGPAToDisk(userGPA)
             gpaLabel.text = "GPA: \(String(userGPA.getCurrentGPA()))"
+            unitLabel.text = "Units: \(String(userGPA.getCurrentCredits()))"
         }
     }
 
@@ -147,7 +163,7 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
             if let loadedUser = try? decoded.decode(User.self, from: savedGPA) {
                 print(" LoadedUser username: \(loadedUser.username)")
                 print(" LoadedUser password:  \(loadedUser.hashedPassword)")
-                print(" LoadedUser public:  \(loadedUser.isPrivate)")
+                print(" LoadedUser isPrivate:  \(loadedUser.isPrivate)")
                 usernameRead = loadedUser.username
                 userPasswordRead = loadedUser.hashedPassword
                 userVisiblityRead = loadedUser.isPrivate
@@ -155,18 +171,7 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
         }
     }
 
-    // MARK: - Private User method, Settings Login method, UserIsLoggedIn at view load
-
-    @IBAction func isPrivateUser(_ sender: Any) {
-        // Hide(disable tapping) for people screen
-        let tabBarControllerItems = tabBarController?.tabBar.items
-        if toggle.isOn == true {
-            if let tabArray = tabBarControllerItems {
-                let tabBarItem2 = tabArray[1]
-                tabBarItem2.isEnabled = false
-            }
-        }
-    }
+    // MARK: - Settings Login method, UserIsLoggedIn at view load
 
     @IBAction func didUserSubmitLogIn(_ sender: Any) {
         guard userName.text != "", userPassword.text != "", userSocialMedia.text != "" else {
@@ -185,37 +190,38 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
 
     // when app opens check if the user has set a password and such
     func isUserLoggedIn() -> Bool {
-        if userPasswordRead == "" {
-            // Alert comes on
-            print("Alert comes on! on isUserLogin function")
-            let alert = UIAlertController(title: "Logged Out", message: "You are not logged in, please log in to view the People Screen", preferredStyle: .alert)
-            present(alert, animated: true)
-            let okAction = UIAlertAction(title: "Ok", style: .default)
-            alert.addAction(okAction)
-
-            // disables the 2nd tab bar item
-            let tabBarControllerItems = tabBarController?.tabBar.items
-            if let tabArray = tabBarControllerItems {
-                let tabBarItem2 = tabArray[1]
+        let tabBarControllerItems = tabBarController?.tabBar.items
+        if let tabArray = tabBarControllerItems {
+            let tabBarItem2 = tabArray[1]
+            
+            if userPasswordRead == "" {
+                // Alert comes on
+                print("Alert comes on! on isUserLogin function")
+                let alert = UIAlertController(title: "Logged Out", message: "You are not logged in, please log in to view the People Screen", preferredStyle: .alert)
+                present(alert, animated: true)
+                let okAction = UIAlertAction(title: "Ok", style: .default)
+                alert.addAction(okAction)
+                // disables the 2nd tab bar item
                 tabBarItem2.isEnabled = false
+                return false
+
+            } else {
+                if userVisiblityRead == false {
+                    tabBarItem2.isEnabled = true
+
+                } else {
+                    tabBarItem2.isEnabled = false
+                }
             }
-            return false
-        } else {
-            let tabBarControllerItems = tabBarController?.tabBar.items
-            if let tabArray = tabBarControllerItems {
-                let tabBarItem2 = tabArray[1]
-                tabBarItem2.isEnabled = true
-            }
-            return true
         }
+        return true
     }
 
     // tab bar function to detect what item the user is at
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let tabBarIndex = tabBarController.selectedIndex
-        
-        // if select people screen tab bar item and user not logged in and set to public option
-        // send to settings screen
+
+        // check if on people screen, check if user is logged, if not then make them go to settings screen
         if tabBarIndex == 1 {
             print("at second tab")
             let value = isUserLoggedIn()
@@ -224,6 +230,12 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
                 tabBarController.selectedIndex = 2
             }
         }
+    }
+
+    // MARK: - People Screen Keyboard Dismiss
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 
     // MARK: - Table View Functions for Calculator View Controller
@@ -248,6 +260,8 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
 //        return courses.count
 //    }
 }
+
+// MARK: - UIPickerView Extension
 
 // Extends the to support the picker
 extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
