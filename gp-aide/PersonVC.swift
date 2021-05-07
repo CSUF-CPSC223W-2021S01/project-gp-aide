@@ -16,7 +16,7 @@ class PersonVC: UIViewController {
     
     // matches initially empty
     // but stores dictionary of matched classmates with classes they matched with
-    var matches: [String] = ["EthanThatOneKid", "SamuelThatOneKid", "SergioThatOneKid", "JacobThatOneKid"]
+    var matches: [String] = []
     
     @IBOutlet weak var personView: UITableView!
     
@@ -25,18 +25,17 @@ class PersonVC: UIViewController {
 
         print("in PersonVC")
         
-        // NEED TO IMPLEMENT
-        // algorithm to add matched classmates using courses
-        /*
-            for classmate in CLASSMATES
-                matchedCourses = []
-                for course in classmate's courses
-                    for userCourse in user's courses
-                        if courses are a match
-                            add course to matchedCourses
-                if matchedCourses is not empty
-                    add classmate and matchedCourses array to data array
-         */
+        for classmate in TEST_CLASSMATES {
+            self.matches.append(classmate.username)
+        }
+        
+        let client = RandomizedClient()
+        client.fetchClassmates(taking: "CPSC 223W") { classmates in
+            self.matches = []
+            for classmate in classmates {
+                self.matches.append(classmate.username)
+            }
+        }
         
         personView.dataSource = self
     }
@@ -56,10 +55,9 @@ extension PersonVC: UITableViewDataSource {
         // create cell to add data to
         let cell = personView.dequeueReusableCell(withIdentifier: "personCell") as! PersonCell
         // create person to add to cell
-        let person = matches[indexPath.row]
+        let username = matches[indexPath.row]
         // assign person to name label in created cell
-        cell.personNameLbl.text = person
-        
+        cell.textLabel?.text = username
         return cell
     }
     
