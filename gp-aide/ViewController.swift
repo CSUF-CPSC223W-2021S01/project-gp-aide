@@ -77,6 +77,10 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
             
             userGPA.addTermCourse(currCourse)
             courses.append(currCourse)
+            
+            // add course title to list of user courses for access from PersonVC
+            USER_COURSES.append(currCourseName!)
+            
             calculateGPA()
 
             // Hide Error Message if on and show success message
