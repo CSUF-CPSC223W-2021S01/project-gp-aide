@@ -8,25 +8,31 @@
 import UIKit
 
 class PersonVC: UIViewController {
-
     // classmates is pool of all classmates
     let classmates = TEST_CLASSMATES
     // userCourses are all courses user has added to term
     let userCourses: [String] = USER_COURSES
     
-    
     // matches initially empty
     // but stores dictionary of matched classmates with classes they matched with
     var matches: [String] = []
     
-    @IBOutlet weak var personView: UITableView!
+    @IBOutlet var personView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        for classmate in TEST_CLASSMATES {
-            self.matches.append(classmate.username)
-        }
+//        for classmate in TEST_CLASSMATES {
+//            self.matches.append(classmate.username)
+//        }
+        
+        personView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("PersonVC is shown")
+        print("user courses are \(userCourses)")
         
         let client = RandomizedClient()
         client.fetchClassmates(taking: "CPSC 223W") { classmates in
@@ -35,13 +41,10 @@ class PersonVC: UIViewController {
                 self.matches.append(classmate.username)
             }
         }
-        
-        personView.dataSource = self
     }
 }
 
 extension PersonVC: UITableViewDataSource {
-    
     // number of persons to display for entire section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return matches.count
@@ -58,10 +61,6 @@ extension PersonVC: UITableViewDataSource {
         // assign person to name label in created cell
         cell.textLabel?.text = username
         
-        print("in PersonVC")
-        print("user courses are \(userCourses)")
-        
         return cell
     }
-    
 }
