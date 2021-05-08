@@ -14,6 +14,7 @@ class PersonVC: UIViewController {
     // userCourses are all courses user has added to term
     let userCourses: [String] = USER_COURSES
     
+    
     // matches initially empty
     // but stores dictionary of matched classmates with classes they matched with
     var matches: [String] = []
@@ -23,8 +24,6 @@ class PersonVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("in PersonVC")
-        
         for classmate in TEST_CLASSMATES {
             self.matches.append(classmate.username)
         }
@@ -58,6 +57,10 @@ extension PersonVC: UITableViewDataSource {
         let username = matches[indexPath.row]
         // assign person to name label in created cell
         cell.textLabel?.text = username
+        
+        print("in PersonVC")
+        print("user courses are \(userCourses)")
+        
         return cell
     }
     
