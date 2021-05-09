@@ -139,11 +139,11 @@
 				81E657F625E593A100F6F42B /* Main.storyboard */,
 				7A2069752645B9B4007EF559 /* PersonVC.swift */,
 				7A20697D2645C0D2007EF559 /* PersonCell.swift */,
+				7A2069852645C923007EF559 /* UserCourses.swift */,
 				81E657F925E593A200F6F42B /* Assets.xcassets */,
 				81E657FB25E593A200F6F42B /* LaunchScreen.storyboard */,
 				81E657FE25E593A200F6F42B /* Info.plist */,
 				7A326A9D26419C9E00001F8D /* RandomizedClient.swift */,
-				7A2069852645C923007EF559 /* UserCourses.swift */,
 			);
 			path = "gp-aide";
 			sourceTree = "<group>";

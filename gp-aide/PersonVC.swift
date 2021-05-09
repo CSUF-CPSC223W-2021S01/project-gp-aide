@@ -26,6 +26,7 @@ class PersonVC: UIViewController {
     var matches: [Match] = []
     
     func updateMatches(courses: [String]) {
+        matches = []
         for classmate in classmates {
             var foundCourses: [String] = []
             for classmateCourse in classmate.courses {
@@ -61,12 +62,13 @@ class PersonVC: UIViewController {
 //            }
 //        }
         
-        matches = []
-        let sampleCourses = ["CPSC 223", "CPSC 481"]
+//        let sampleCourses = ["CPSC 223", "CPSC 481"]
+        // UserCourses.shared is singleton instance with updated courses list property
+        let userCourses = UserCourses.shared.courses
         
         // NEED TO IMPLEMENT
         // sampleCourses should be replaced with updated list of added user courses
-        updateMatches(courses: sampleCourses)
+        updateMatches(courses: userCourses)
     }
 }
 

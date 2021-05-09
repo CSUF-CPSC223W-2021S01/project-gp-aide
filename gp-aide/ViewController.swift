@@ -79,7 +79,7 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
             courses.append(currCourse)
             
             // add course title to list of user courses for access from PersonVC
-            USER_COURSES.append(currCourseName!)
+            UserCourses.shared.addCourse(course: currCourseName!)
             
             calculateGPA()
 
