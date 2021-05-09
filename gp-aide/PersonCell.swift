@@ -2,7 +2,7 @@
 //  PersonCell.swift
 //  gp-aide
 //
-//  Created by CSUFTitan on 5/7/21.
+//  Created by Sergio Herrera on 5/7/21.
 //
 
 import UIKit
@@ -16,5 +16,4 @@ class PersonCell: UITableViewCell {
         personNameLbl.text = person.name
         matchedCoursesLbl.text = person.matchedCourses
     }
-
 }

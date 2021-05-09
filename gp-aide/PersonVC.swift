@@ -23,14 +23,28 @@ class PersonVC: UIViewController {
     
     // matches is initially empty
     // but stores a Match struct obj for every match found in classmates to current courses "cart"
-    var matches: [Match] = [Match(name: "EthanThatOneKid", matchedCourses: "CPSC 223, CPSC 481"), Match(name: "SamuelThatOneKid", matchedCourses: "CPSC 223")]
+    var matches: [Match] = []
+    
+    func updateMatches(courses: [String]) {
+        for classmate in classmates {
+            var foundCourses: [String] = []
+            for classmateCourse in classmate.courses {
+                for course in courses {
+                    if classmateCourse.title.lowercased() == course.lowercased() {
+                        foundCourses.append(course)
+                    }
+                }
+            }
+            if foundCourses.count > 0 {
+                let matchedCoursesOutput = foundCourses.joined(separator: ", ")
+                let match = Match(name: classmate.username, matchedCourses: matchedCoursesOutput)
+                matches.append(match)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        for classmate in TEST_CLASSMATES {
-//            self.matches.append(classmate.username)
-//        }
         
         personView.dataSource = self
     }
@@ -38,7 +52,6 @@ class PersonVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("PersonVC is shown")
-//        print("user courses are \(userCourses)")
         
 //        let client = RandomizedClient()
 //        client.fetchClassmates(taking: "CPSC 223W") { classmates in
@@ -48,6 +61,12 @@ class PersonVC: UIViewController {
 //            }
 //        }
         
+        matches = []
+        let sampleCourses = ["CPSC 223", "CPSC 481"]
+        
+        // NEED TO IMPLEMENT
+        // sampleCourses should be replaced with updated list of added user courses
+        updateMatches(courses: sampleCourses)
     }
 }
 
