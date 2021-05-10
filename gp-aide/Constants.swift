@@ -60,7 +60,7 @@ let TEST_CLASSMATES = [
     username: "Sergio Herrera",
     contactUrl: "Discord: Sergio#7941",
     courses: [Course("CPSC 223W", classGrade: "C+", classCredits: 3.0),
-              Course("CPSC 481", classGrade: "B+", classCredits: 3.0)]
+              Course("CPSC 323", classGrade: "B+", classCredits: 3.0)]
   ),
   Classmate(
     username: "Nacob Jguyen",
