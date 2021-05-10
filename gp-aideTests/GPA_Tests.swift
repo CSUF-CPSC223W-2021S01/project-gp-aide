@@ -57,6 +57,14 @@ class GPA_Tests: XCTestCase {
         XCTAssertEqual(studentGPA.removeTermCourse("CS 101"), true)
     }
     
+    func testRemoveCredits(){
+        let studentGPA = GPA()
+        let studentCourse = Course("CS 101", classGrade: "A+", classCredits: 3)
+        studentGPA.addTermCourse(studentCourse)
+        studentGPA.removeCredits(2)
+        XCTAssertEqual(studentGPA.currCredits, 1)
+    }
+    
     func testSingleCourseCredits() {
         let studentGPA = GPA()
         let studentCourse = Course("CS 101", classGrade: "A+", classCredits: 3.0)
