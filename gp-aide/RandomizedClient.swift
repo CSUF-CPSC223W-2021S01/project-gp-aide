@@ -7,6 +7,13 @@
 
 import Foundation
 
+struct FakeData: Decodable {
+    var status: String
+    var code: Int
+    var total: Int
+    var data: [[String: String]]
+}
+
 extension URL {
     func withQueries(_ queries: [String: String]) -> URL? {
         var components = URLComponents(url: self, resolvingAgainstBaseURL: true)
@@ -23,14 +30,20 @@ let fakeDataUrl = baseURL!.withQueries(["_quantity": String(CLASSMATE_AMOUNT)])
 class RandomizedClient: GPAideClient {
     func fetchClassmates(taking courseTitle: String, complete: @escaping ([Classmate]) -> Void) {
         var foundClassmates: [Classmate] = []
+        // For some reason, the line below gives me this error message:
+        // "nw_protocol_get_quic_image_block_invoke dlopen libquic failed"
+        // Spent a while trying to find a solution, but couldn't realy find one.
         let task = URLSession.shared.dataTask(with: fakeDataUrl!) { (data, response, error) in
             if let data = data {
                 let decoder = JSONDecoder()
-                let people = try? decoder.decode([[String: String]].self, from: data)
-                let course = Course(courseTitle, classGrade: "A", classCredits: 3.0)
-                for person in people! {
-                    let classmate = Classmate(username: person["email"]!, contactUrl: person["website"]!, courses: [course])
-                    foundClassmates.append(classmate)
+                if let fakeData = try? decoder.decode(FakeData.self, from: data) {
+                    let people = fakeData.data
+                    print(fakeData, people)
+                    let course = Course(courseTitle, classGrade: "A", classCredits: 3.0)
+                    for person in people {
+                        let classmate = Classmate(username: person["email"]!, contactUrl: person["website"]!, courses: [course])
+                        foundClassmates.append(classmate)
+                    }
                 }
             }
             complete(foundClassmates)
