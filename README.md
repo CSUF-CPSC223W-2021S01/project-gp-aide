@@ -1,3 +1,5 @@
+
+
 # GP-Aide 🧮
 
 > _"GPA" + "Aide"_
@@ -15,7 +17,7 @@ The inputted data is locally stored, so the user does not have to enter their gr
 
 ## Demo 🙈
 
-![Main screen mockup](https://user-images.githubusercontent.com/40745961/115745784-9ce29580-a348-11eb-9d61-395907bdeb55.png)
+https://user-images.githubusercontent.com/51276320/117737816-82fddb00-b1af-11eb-8c95-93c7ecdb380c.mov
 
 ## The Team 🏆
 
