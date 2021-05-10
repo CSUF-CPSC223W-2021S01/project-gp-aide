@@ -25,7 +25,7 @@ class SimulatedClientTests: XCTestCase {
     }
     
     func testFoundClassmatesByClassOne() {
-        let testCourse = "CPSC 223"
+        let testCourse = "CPSC 223W"
         self.client.fetchClassmates(taking: testCourse) { foundClassmates in
             XCTAssertEqual(foundClassmates.count, 4)
         }

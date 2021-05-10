@@ -74,13 +74,13 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
         // checks to see if all fields have been inputed correctly
         if currCourseName != nil, currCourseGrade != nil, currCourseUnits != nil {
             let currCourse = Course(currCourseName!, classGrade: currCourseGrade!, classCredits: currCourseUnits!)
-            
+
             userGPA.addTermCourse(currCourse)
             courses.append(currCourse)
-            
+
             // add course title to list of user courses for access from PersonVC
             UserCourses.shared.addCourse(course: currCourseName!)
-            
+
             calculateGPA()
 
             // Hide Error Message if on and show success message
@@ -104,10 +104,10 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
     func calculateGPA() {
         errorLabel.isHidden = true
         successLabel.isHidden = true
-        
+
         // userGPA calculates updated GPA as courses get added to term
         let calculatedGPA = userGPA.getCurrentGPA()
-        
+
         if calculatedGPA.isNaN {
             print("Alert comes on!")
             let alert = UIAlertController(title: "Missing Course", message: "You need to enter a course before calculating GPA", preferredStyle: .alert)
@@ -201,7 +201,7 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
         let tabBarControllerItems = tabBarController?.tabBar.items
         if let tabArray = tabBarControllerItems {
             let tabBarItem2 = tabArray[1]
-            
+
             if userPasswordRead == "" {
                 // Alert comes on
                 print("Alert comes on! on isUserLogin function")
@@ -233,7 +233,7 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
         if tabBarIndex == 1 {
             print("at second tab")
             let value = isUserLoggedIn()
-            
+
             if value == false {
                 tabBarController.selectedIndex = 2
             }
@@ -245,28 +245,6 @@ class ViewController: UIViewController, UITabBarControllerDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
-
-    // MARK: - Table View Functions for Calculator View Controller
-
-//    func tableView(_ tableOfCourses: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("You tapped me!")
-//        tableOfCourses.deselectRow(at: indexPath, animated: true)
-//        performSegue(withIdentifier: "showPeople", sender: self)
-//    }
-//
-//    func tableView(_ tableOfCourses: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableOfCourses.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-//        if courses.count > 0 {
-//            let courseObj = courses[indexPath.row]
-//            let courseTitle = courseObj.getCourseTitle()
-//            cell.textLabel?.text = courseTitle
-//        }
-//        return cell
-//    }
-//
-//    func tableView(_ tableOfCourses: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return courses.count
-//    }
 }
 
 // MARK: - UIPickerView Extension
