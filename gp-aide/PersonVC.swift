@@ -10,10 +10,10 @@ import UIKit
 struct Match {
     var name: String = ""
     var matchedCourses: String = ""
+    var social: String = ""
 }
 
 class PersonVC: UIViewController {
-    
     @IBOutlet var personView: UITableView!
     
     // classmates is pool of all classmates
@@ -38,10 +38,11 @@ class PersonVC: UIViewController {
             }
             if foundCourses.count > 0 {
                 let matchedCoursesOutput = foundCourses.joined(separator: ", ")
-                let match = Match(name: classmate.username, matchedCourses: matchedCoursesOutput)
+                let match = Match(name: classmate.username, matchedCourses: matchedCoursesOutput, social: classmate.contactUrl)
                 matches.append(match)
             }
         }
+        print("Matches: \(matches)")
     }
     
     override func viewDidLoad() {
@@ -54,19 +55,11 @@ class PersonVC: UIViewController {
         super.viewWillAppear(animated)
         print("PersonVC is shown")
         
-//        let client = RandomizedClient()
-//        client.fetchClassmates(taking: "CPSC 223W") { classmates in
-//            self.matches = []
-//            for classmate in classmates {
-//                self.matches.append(classmate.username)
-//            }
-//        }
-        
-//        let sampleCourses = ["CPSC 223", "CPSC 481"]
         // UserCourses.shared is singleton instance with updated courses list property
         let userCourses = UserCourses.shared.courses
+        print("PersonVC Appear got userCourses: ")
+        print(userCourses)
         
-        // NEED TO IMPLEMENT
         // sampleCourses should be replaced with updated list of added user courses
         updateMatches(courses: userCourses)
     }
@@ -80,7 +73,6 @@ extension PersonVC: UITableViewDataSource {
     
     // map each person match to cell labels
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         // create person to add to cell
         let person = matches[indexPath.row]
         // create cell to add data to

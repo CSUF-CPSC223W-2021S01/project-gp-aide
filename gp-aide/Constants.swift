@@ -45,27 +45,27 @@ let GRADES = [
 // --- Simulated Client Constants ---
 let TEST_CLASSMATES = [
   Classmate(
-    username: "EthanThatOneKid",
+    username: "EthanThatOneAdult",
     contactUrl: "https://github.com/EthanThatOneKid",
-    courses: [Course("CPSC 223", classGrade: "A+", classCredits: 3.0),
+    courses: [Course("CPSC 223W", classGrade: "A+", classCredits: 3.0),
               Course("CPSC 481", classGrade: "C", classCredits: 3.0)]
   ),
   Classmate(
-    username: "SamuelThatOneKid",
+    username: "Samuel Sandoval",
     contactUrl: "https://samuelsandoval.me",
-    courses: [Course("CPSC 223", classGrade: "B", classCredits: 3.0),
+    courses: [Course("CPSC 223W", classGrade: "B", classCredits: 3.0),
               Course("CPSC 315", classGrade: "A", classCredits: 3.0)]
   ),
   Classmate(
-    username: "SergioThatOneKid",
+    username: "Sergio Herrera",
     contactUrl: "https://github.com/Herrera741",
-    courses: [Course("CPSC 223", classGrade: "C+", classCredits: 3.0),
+    courses: [Course("CPSC 223W", classGrade: "C+", classCredits: 3.0),
               Course("CPSC 481", classGrade: "B+", classCredits: 3.0)]
   ),
   Classmate(
-    username: "JacobThatOneKid",
+    username: "Jacob Nguyen",
     contactUrl: "https://github.com/barrotbake",
-    courses: [Course("CPSC 223", classGrade: "B-", classCredits: 3.0),
+    courses: [Course("CPSC 223W", classGrade: "B-", classCredits: 3.0),
               Course("CPSC 411", classGrade: "A", classCredits: 3.0)]
   )
 ]
