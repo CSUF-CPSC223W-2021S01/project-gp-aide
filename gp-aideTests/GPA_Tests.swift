@@ -129,6 +129,23 @@ class GPA_Tests: XCTestCase {
         XCTAssertEqual(studentGPA.previousGPA["gpa"], 3.0)
     }
     
+    func testGetCurrentGPA(){
+        let studentGPA = GPA()
+        XCTAssertEqual(studentGPA.getCurrentGPA(), 0.0)
+    }
+    
+    func testGetCurrentCredits(){
+        let studentGPA = GPA()
+        XCTAssertEqual(studentGPA.getCurrentCredits(), 0.0)
+    }
+    
+    func testGetTerm(){
+        let studentGPA = GPA()
+        let studentCourse = Course("CS 101", classGrade: "A", classCredits: 3)
+        studentGPA.addTermCourse(studentCourse)
+        XCTAssertEqual(studentGPA.getTerm()[0].getCourseTitle(), "CS 101")
+    }
+    
     func testSingleCourseCumulativeGPA() {
         let studentGPA = GPA()
         let studentCourse = Course("CS 101", classGrade: "A", classCredits: 3)
