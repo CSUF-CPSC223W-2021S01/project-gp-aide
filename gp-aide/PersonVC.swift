@@ -57,7 +57,7 @@ class PersonVC: UIViewController {
         
         // UserCourses.shared is singleton instance with updated courses list property
         let userCourses = UserCourses.shared.courses
-        print("Executed")
+        print("PersonVC Appear got userCourses: ")
         print(userCourses)
         
         // sampleCourses should be replaced with updated list of added user courses
