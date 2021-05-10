@@ -46,25 +46,25 @@ let GRADES = [
 let TEST_CLASSMATES = [
   Classmate(
     username: "EthanThatOneAdult",
-    contactUrl: "https://github.com/EthanThatOneKid",
+    contactUrl: "Discord: EthanThatOneKid#3456",
     courses: [Course("CPSC 223W", classGrade: "A+", classCredits: 3.0),
               Course("CPSC 481", classGrade: "C", classCredits: 3.0)]
   ),
   Classmate(
     username: "Samuel Sandoval",
-    contactUrl: "https://samuelsandoval.me",
+    contactUrl: "Discord: SJSands#7010",
     courses: [Course("CPSC 223W", classGrade: "B", classCredits: 3.0),
               Course("CPSC 315", classGrade: "A", classCredits: 3.0)]
   ),
   Classmate(
     username: "Sergio Herrera",
-    contactUrl: "https://github.com/Herrera741",
+    contactUrl: "Discord: Sergio#7941",
     courses: [Course("CPSC 223W", classGrade: "C+", classCredits: 3.0),
               Course("CPSC 481", classGrade: "B+", classCredits: 3.0)]
   ),
   Classmate(
     username: "Jacob Nguyen",
-    contactUrl: "https://github.com/barrotbake",
+    contactUrl: "Discord: Jaegubwin#4676",
     courses: [Course("CPSC 223W", classGrade: "B-", classCredits: 3.0),
               Course("CPSC 411", classGrade: "A", classCredits: 3.0)]
   )
