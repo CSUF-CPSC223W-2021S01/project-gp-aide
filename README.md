@@ -2,7 +2,7 @@
 
 # GP-Aide 🧮
 
-> _"GPA" + "Aide"_
+> _ʤi-pi-eɪd_
 
 ## About 💬
 
