@@ -16,8 +16,8 @@ The inputted data is locally stored, so the user does not have to enter their gr
 - [ ] Discover other students who will be taking the same classes before the semester begins.
 
 ## Demo 🙈
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/51276320/117859123-775bf400-b243-11eb-8496-682fbf323483.gif)
 
-https://user-images.githubusercontent.com/51276320/117737816-82fddb00-b1af-11eb-8c95-93c7ecdb380c.mov
 
 ## The Team 🏆
 
